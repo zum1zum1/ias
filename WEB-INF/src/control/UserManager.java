@@ -17,19 +17,6 @@ public class UserManager {
 		// もし入力されたuserIdとデータベースのuserIdが一致していない もしくは 入力されたpasswordとデータベースのpasswordが一致していない場合
 		// checkId = 0
 
-
-		if (user == null) {
-			int checkId = 0;
-			return checkId;
-
-		} else if (user.getUserId().equals(userId) && user.getPassword().equals(password)) {
-			int checkId = 1;
-			return checkId;
-
-		} else if (!user.getUserId().equals(userId) || !user.getPassword().equals(password)) {
-			int checkId = 0;
-			return checkId;
-		}
 		return 0;
 	}
 }
