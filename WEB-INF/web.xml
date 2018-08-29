@@ -4,6 +4,40 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
 	version="2.4">
 
+	<servlet>
+		<servlet-name>LoginUserServlet</servlet-name>
+		<servlet-class>servlet.LoginUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginUserServlet</servlet-name>
+		<url-pattern>/Public/jsp/LoginUserServlet</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>GoSelfAssessmentServlet</servlet-name>
+		<servlet-class>servlet.GoSelfAssessmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GoSelfAssessmentServlet</servlet-name>
+		<url-pattern>/Public/jsp/GoSelfAssessmentServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SelectLessonServlet</servlet-name>
+		<servlet-class>servlet.SelectLessonServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SelectLessonServlet</servlet-name>
+		<url-pattern>/Public/jsp/SelectLessonServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ReceiveSelfAssessmentServlet</servlet-name>
+		<servlet-class>servlet.ReceiveSelfAssessmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReceiveSelfAssessmentServlet</servlet-name>
+		<url-pattern>/Public/jsp/ReceiveSelfAssessmentServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>

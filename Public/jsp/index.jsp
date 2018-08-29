@@ -7,7 +7,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand text-white">PeerAssessment System</a>
+		<a class="navbar-brand text-white">Individual Assessment System</a>
 	</nav>
 	<br>
 	<div class="container py-5">
@@ -22,7 +22,7 @@
 								<h2 class="mb-0 text-white">Login Form</h2>
 							</div>
 							<div class="card-body">
-								<form class="form" method="post" action="/pss/Public/jsp/LoginUserServlet">
+								<form class="form" method="post" action="/ias/Public/jsp/LoginUserServlet">
 									<div class="form-group">
 										<label>UserID</label>
 										<input type="text" class="form-control form-control-lg rounded" name="userId" required>
