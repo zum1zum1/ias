@@ -64,6 +64,8 @@ public class ResponseDataDAO extends DriverAccessor {
 
 			//PreparedStatementの宣言開始（DBに格納するための変数の宣言）
 			PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+
+			//テーブルに値をset
 			stmt.setInt(1, 0);
 			stmt.setInt(2, responseData.getUserId());
 			stmt.setInt(3, responseData.getLessonId());
