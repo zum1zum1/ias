@@ -21,6 +21,11 @@ public class ResponseData {
 		this.per4 = per4;
 	}
 
+
+	public ResponseData() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
 	public int getId() {
 		return id;
 	}
