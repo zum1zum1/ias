@@ -13,4 +13,31 @@
 		<url-pattern>/Public/jsp/LoginUserServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>GoSelfAssessmentServlet</servlet-name>
+		<servlet-class>servlet.GoSelfAssessmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GoSelfAssessmentServlet</servlet-name>
+		<url-pattern>/Public/jsp/GoSelfAssessmentServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SelectLessonServlet</servlet-name>
+		<servlet-class>servlet.SelectLessonServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SelectLessonServlet</servlet-name>
+		<url-pattern>/Public/jsp/SelectLessonServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ReceiveSelfAssessmentServlet</servlet-name>
+		<servlet-class>servlet.ReceiveSelfAssessmentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReceiveSelfAssessmentServlet</servlet-name>
+		<url-pattern>/Public/jsp/ReceiveSelfAssessmentServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>
