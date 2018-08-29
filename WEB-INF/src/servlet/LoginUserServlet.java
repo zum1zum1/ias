@@ -45,7 +45,7 @@ public class LoginUserServlet extends HttpServlet {
 		} else if (checkId == 1) {
 
 			ResponseDataDAO responseDataDAO = new ResponseDataDAO();
-			ArrayList<ResponseData> responseDataList = responseDataDAO.selectResponseData(user.getUserId());
+			ArrayList<ResponseData> responseDataList = responseDataDAO.selectResponseData(user.getId());
 
 			// sessionの開始
 			HttpSession session = request.getSession(true);
