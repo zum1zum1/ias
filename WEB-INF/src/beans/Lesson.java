@@ -13,6 +13,10 @@ public class Lesson {
 		this.date = date;
 	}
 
+	public Lesson(){
+
+	}
+
 	public int getId() {
 		return id;
 	}
