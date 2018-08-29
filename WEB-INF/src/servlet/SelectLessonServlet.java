@@ -19,14 +19,19 @@ public class SelectLessonServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 
-		/*
-		 * 授業をすべてDBから持ってくる
-		 */
-		LessonDAO lessonDAO = new LessonDAO();
+		//ArrayListでLessonオブジェクトをlessonとして宣言
 		ArrayList<Lesson> lessonList = new ArrayList<Lesson>();
+
+		 //LessonDAOのオブジェクトをleesonDAOとして宣言
+		LessonDAO lessonDAO = new LessonDAO();
+
+		//lessonListにDBから受け取った値を格納
 		lessonList = lessonDAO.searchLesson();
+
+		//.jspに渡せるようにrequestで宣言
 		request.setAttribute("lessonList", lessonList);
 
 		getServletContext().getRequestDispatcher("/Public/jsp/selectLesson.jsp").forward(request, response);
