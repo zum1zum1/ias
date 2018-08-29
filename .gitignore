@@ -1,0 +1,10 @@
+/bin/
+/work/
+.project
+.settings
+.class
+/WEB-INF/classes/
+.tomcatplugin
+
+# Java
+DriverAccessor.java
