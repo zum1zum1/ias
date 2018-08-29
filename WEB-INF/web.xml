@@ -4,6 +4,13 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
 	version="2.4">
 
-
+	<servlet>
+		<servlet-name>LoginUserServlet</servlet-name>
+		<servlet-class>servlet.LoginUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginUserServlet</servlet-name>
+		<url-pattern>/Public/jsp/LoginUserServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
