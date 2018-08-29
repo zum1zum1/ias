@@ -18,17 +18,25 @@ public class LessonDAO extends DriverAccessor {
 
 		try {
 
+			//sql文（今回は検索なので、select）
 			String sql = "select * from lessons";
+
+			//Statementの宣言
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 
+			//一行ごとにArrayListに検索結果を格納する(while文)
 			ArrayList<Lesson> lessonList = new ArrayList<Lesson>();
 			while (rs.next()) {
 				Lesson lesson = new Lesson(rs.getInt("id"), rs.getString("title"), rs.getString("date"));
 				lessonList.add(lesson);
 			}
+
+			//Statement及びResultSetの終了
 			stmt.close();
 			rs.close();
+
+			//検索結果をreturnする
 			return lessonList;
 
 		} catch (SQLException e) {
