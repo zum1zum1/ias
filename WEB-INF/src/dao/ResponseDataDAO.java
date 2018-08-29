@@ -11,7 +11,7 @@ import utility.DriverAccessor;
 
 public class ResponseDataDAO extends DriverAccessor {
 	// ユーザIDからパスワードを返す
-	public ArrayList<ResponseData> selectResponseData(String userId) {
+	public ArrayList<ResponseData> selectResponseData(int userId) {
 
 		Connection con = null;
 		con = createConnection();
@@ -22,11 +22,11 @@ public class ResponseDataDAO extends DriverAccessor {
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			ArrayList<ResponseData> responseDataList = new ArrayList<ResponseData>();
-			rs.next();
 
 			while (rs.next()) {
 			ResponseData responseData = new ResponseData(rs.getInt("id"),rs.getInt("user_id"),rs.getInt("lesson_id"),rs.getInt("per1"),rs.getInt("per2"),rs.getInt("per3"),rs.getInt("per4"));
 			responseDataList.add(responseData);
+			System.out.println(responseData.getLessonId());
 			}
 			stmt.close();
 			rs.close();
