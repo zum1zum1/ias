@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.ResponseData;
+import beans.User;
 import dao.ResponseDataDAO;
 
 public class ReceiveSelfAssessmentServlet extends HttpServlet {
@@ -26,8 +28,7 @@ public class ReceiveSelfAssessmentServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 
 		//sessionでuserIdの受け取り
-		int userId = (int) session.getAttribute("userId");
-
+		User user = (User) session.getAttribute("user");
 		//sessionでlessonIdの受け取り
 		int lessonId = (int) session.getAttribute("lessonId");
 
@@ -38,13 +39,18 @@ public class ReceiveSelfAssessmentServlet extends HttpServlet {
 		int per4 = Integer.parseInt(request.getParameter("per4"));
 
 		//ResponseDataオブジェクトをresponseDataとして宣言し、コンストラクタ化
-		ResponseData responseData = new ResponseData(0,userId,lessonId,per1,per2,per3,per4);
+		ResponseData responseData = new ResponseData(0,user.getId(),lessonId,per1,per2,per3,per4);
 
 		 //ResponseDataDAOのオブジェクトをresponseDataDAOとして宣言
 		ResponseDataDAO responseDataDAO = new ResponseDataDAO();
 
 		//responseDataをDBに登録
 		responseDataDAO.registResponseData(responseData);
+
+		// ログインしたユーザーが記録した反応データをデータベースから読み出す（配列になるので、ArrayList）
+		ArrayList<ResponseData> responseDataList = responseDataDAO.selectResponseData(user.getId());
+		// sessionに新しい反応データを入れなおす
+		session.setAttribute("responseDataList",responseDataList);
 
 		getServletContext().getRequestDispatcher("/Public/jsp/home.jsp").forward(request, response);
 	}
