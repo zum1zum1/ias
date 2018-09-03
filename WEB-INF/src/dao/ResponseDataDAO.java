@@ -22,7 +22,7 @@ public class ResponseDataDAO extends DriverAccessor {
 		try {
 
 			// sql文を書く   引数として持ってきたユーザーのidと一致するuser_idのレコードをresponse_dataテーブルからSELECTしてくる。必要に応じてorder by ooo descとかで並べ替える必要があるかもしれない。。。
-			String sql = "select * from response_data where user_id = '" + userId + "' order by lesson_id desc;";
+			String sql = "select * from response_data where user_id = '" + userId + "' order by lesson_id asc;";
 
 
 
