@@ -20,7 +20,7 @@ public class GoSelfAssessmentServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		//.jspで選択されたlessonIdを受け取る
-		int lessonId = (int) request.getAttribute("lessonId");
+		int lessonId = Integer.parseInt(request.getParameter("lessonId"));
 
 		//sessionの宣言
 		HttpSession session = request.getSession(true);

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="beans.Lesson"%>
 <%@ page import="java.util.ArrayList"%>
 
@@ -7,10 +8,10 @@
 	ArrayList<Lesson> lessonList = (ArrayList<Lesson>) request.getAttribute("lessonList");
 %>
 
-<!DOCTYPE html>
 <html>
 <head>
-<link href="../common/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="../common/bootstrap.jsp" />
 <title>授業選択画面</title>
 </head>
 
@@ -18,7 +19,7 @@
 
 <div class="container">
 	<div class="row" style="padding: 90px 0 0 0">
-		<form action="SearchRubricStudentServlet" method="POST">
+		<form action="GoSelfAssessmentServlet" method="POST">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div style="margin-top: 0px; padding-bottom: 0px;">
 					<div class="alert alert-info" role="alert">
@@ -35,22 +36,15 @@
 						<tbody>
 							<%
 								for (int i = 1; i <= lessonList.size(); i++) {
-									out.println("<tr>");
-
-									out.println("<td>");
-									out.println(lessonList.get(i - 1).getTitle());
-									out.println("</td>");
-
-									out.println("<td>");
-									out.println(lessonList.get(i - 1).getDate());
-									out.println("</td>");
-
-									out.println("<td>");
-									out.println("<button type='submit' name='lessonId' value=" + lessonList.get(i - 1).getId()
-											+ ">入力</button>");
-									out.println("</td>");
-
-									out.println("</tr>");
+							%>
+							<tr>
+								<td><%=lessonList.get(i-1).getTitle()%></td>
+								<td><%=lessonList.get(i-1).getDate()%></td>
+								<td>
+									<button type="submit" name="lessonId" value=<%=lessonList.get(i-1).getId()%>>入力</button>
+								</td>
+							</tr>
+							<%
 								}
 							%>
 						</tbody>
