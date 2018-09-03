@@ -22,7 +22,7 @@ public class ResponseDataDAO extends DriverAccessor {
 		try {
 
 			// sql文を書く   引数として持ってきたユーザーのidと一致するuser_idのレコードをresponse_dataテーブルからSELECTしてくる。必要に応じてorder by ooo descとかで並べ替える必要があるかもしれない。。。
-			String sql = "select * from response_data where user_id = '" + userId + "' order by lesson_id desc;";
+			String sql = "select * from response_data where user_id = '" + userId + "' order by lesson_id asc;";
 
 
 
@@ -101,6 +101,84 @@ public class ResponseDataDAO extends DriverAccessor {
 		SQLException e) {
 			e.printStackTrace();
 			return;
+		} finally {
+		}
+	}
+
+	public int checkDoneSelfAssessment(int userId,int lessonId) {
+
+		//コネクションの接続開始
+		Connection con = null;
+		con = createConnection();
+
+		try {
+
+			//insert文の宣言（例えば、responseData.getUserId()）
+			String sql = "select * from response_data where user_id = ? and lesson_id = ?";
+
+			//PreparedStatementの宣言開始（DBに格納するための変数の宣言）
+			PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+
+			//テーブルに値をset
+			stmt.setInt(1, userId);
+			stmt.setInt(2, lessonId);
+
+			//DBのUpdate
+			ResultSet rs = stmt.executeQuery();
+
+			rs.last();
+			int number_of_row = rs.getRow();
+
+			//PreparedStatementの終了
+			stmt.close();
+
+			return number_of_row;
+
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+			return -1;
+		} finally {
+		}
+	}
+
+	public ResponseData selectOneResponseData(int userId,int lessonId) {
+
+		//コネクションの接続開始
+		Connection con = null;
+		con = createConnection();
+
+		try {
+
+			//insert文の宣言（例えば、responseData.getUserId()）
+			String sql = "select * from response_data where user_id = ? and lesson_id = ?";
+
+			//PreparedStatementの宣言開始（DBに格納するための変数の宣言）
+			PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+
+			//テーブルに値をset
+			stmt.setInt(1, userId);
+			stmt.setInt(2, lessonId);
+
+			//DBのUpdate
+			ResultSet rs = stmt.executeQuery();
+			rs.next();
+
+			ResponseData responseData = new ResponseData(rs.getInt("id"), rs.getInt("user_id"),
+					rs.getInt("lesson_id"), rs.getInt("per1"), rs.getInt("per2"), rs.getInt("per3"),
+					rs.getInt("per4"));
+
+			//PreparedStatementの終了
+			stmt.close();
+
+			return responseData;
+
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+			return null;
 		} finally {
 		}
 	}

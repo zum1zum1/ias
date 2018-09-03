@@ -40,4 +40,22 @@
 		<url-pattern>/Public/jsp/ReceiveSelfAssessmentServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>LogoutUserServlet</servlet-name>
+		<servlet-class>servlet.LogoutUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutUserServlet</servlet-name>
+		<url-pattern>/Public/jsp/LogoutUserServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GoHomeServlet</servlet-name>
+		<servlet-class>servlet.GoHomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GoHomeServlet</servlet-name>
+		<url-pattern>/Public/jsp/GoHomeServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>
