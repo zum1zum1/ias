@@ -272,10 +272,22 @@ out.println("<form action='UpdateSelfAssessmentServlet' method='POST'>");
 		</tbody>
 		<% } %>
 	</table>
-	<input type="submit" value="登録する">
+	<input type="submit" value="登録する" id="submit">
 </form>
 
 
 
 </body>
 </html>
+
+<script type="text/javascript">
+$(function() {
+	$('#submit').click(function() {
+		if (($('input[name=per1]').is(':checked') === false)||($('input[name=per2]').is(':checked') === false)||($('input[name=per3]').is(':checked') === false)||($('input[name=per4]').is(':checked') === false)) {
+			if (!alert('全てのボタンを選択してください')) {
+				return false;
+			}
+		}
+	});
+});
+</script>

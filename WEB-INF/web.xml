@@ -40,12 +40,12 @@
 		<url-pattern>/Public/jsp/ReceiveSelfAssessmentServlet</url-pattern>
 	</servlet-mapping>
 
-		<servlet>
+	<servlet>
 		<servlet-name>UpdateSelfAssessmentServlet</servlet-name>
 		<servlet-class>servlet.UpdateSelfAssessmentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>updateSelfAssessmentServlet</servlet-name>
+		<servlet-name>UpdateSelfAssessmentServlet</servlet-name>
 		<url-pattern>/Public/jsp/UpdateSelfAssessmentServlet</url-pattern>
 	</servlet-mapping>
 
