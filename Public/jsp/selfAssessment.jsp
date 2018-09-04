@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="beans.ResponseData"%>
 
 <%
 	@SuppressWarnings("unchecked")
 	int lessonId = (int) session.getAttribute("lessonId");
+	int selfAssessmentCheck = (int) request.getAttribute("selfAssessmentCheck");
+	if(selfAssessmentCheck == 1){
+		ResponseData responseData = (ResponseData) request.getAttribute("responseData");
+	}
 %>
 
 
@@ -30,6 +35,8 @@
 				<th>5</th>
 			</tr>
 		</thead>
+
+	<% if(selfAssessmentCheck == 0) { %>
 		<tbody>
 			<tr>
 				<td>～～について</td>
@@ -104,6 +111,82 @@
 				</td>
 			</tr>
 		</tbody>
+	<% } else if(selfAssessmentCheck == 1) {%>
+		<tbody>
+			<tr>
+				<td>～～について</td>
+				<td>できていない
+				<input type="radio" name="per1" value=1>
+				</td>
+				<td>すこしできている
+				<input type="radio" name="per1" value=2>
+				</td>
+				<td>ふつう
+				<input type="radio" name="per1" value=3>
+				</td>
+				<td>よくできている
+				<input type="radio" name="per1" value=4>
+				</td>
+				<td>非常によくできている
+				<input type="radio" name="per1" value=5>
+				</td>
+			</tr>
+			<tr>
+				<td>～～について</td>
+				<td>できていない
+				<input type="radio" name="per2" value=1>
+				</td>
+				<td>すこしできている
+				<input type="radio" name="per2" value=2>
+				</td>
+				<td>ふつう
+				<input type="radio" name="per2" value=3>
+				</td>
+				<td>よくできている
+				<input type="radio" name="per2" value=4>
+				</td>
+				<td>非常によくできている
+				<input type="radio" name="per2" value=5>
+				</td>
+			</tr>
+			<tr>
+				<td>～～について</td>
+				<td>できていない
+				<input type="radio" name="per3" value=1>
+				</td>
+				<td>すこしできている
+				<input type="radio" name="per3" value=2>
+				</td>
+				<td>ふつう
+				<input type="radio" name="per3" value=3>
+				</td>
+				<td>よくできている
+				<input type="radio" name="per3" value=4>
+				</td>
+				<td>非常によくできている
+				<input type="radio" name="per3" value=5>
+				</td>
+			</tr>
+			<tr>
+				<td>～～について</td>
+				<td>できていない
+				<input type="radio" name="per4" value=1>
+				</td>
+				<td>すこしできている
+				<input type="radio" name="per4" value=2>
+				</td>
+				<td>ふつう
+				<input type="radio" name="per4" value=3>
+				</td>
+				<td>よくできている
+				<input type="radio" name="per4" value=4>
+				</td>
+				<td>非常によくできている
+				<input type="radio" name="per4" value=5>
+				</td>
+			</tr>
+		</tbody>
+		<% } %>
 	</table>
 	<input type="submit" value="登録する">
 </form>
