@@ -106,6 +106,7 @@
 		per4list.push(<%=responseDataList.get(i).getPer4()%>);
 	<% } %>
 	console.log(per1list);
+	// 折れ線を書く時にy座標の位置を指定するための配列
 	var responseDataToHigh = [250,200,150,100,50];
 
 
@@ -121,6 +122,8 @@
 		/* 2Dコンテキスト */
 		var ctx = canvas.getContext('2d');
 
+
+		// 軸のファイルを読み込む
 		/* Imageオブジェクトを生成 */
 		var img = new Image();
 		img.src = "../img/axis.png";
@@ -134,7 +137,7 @@
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per1list[0]-1]); //書き始める場所を指定(1月)
-
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
 		}
@@ -172,7 +175,8 @@
 			ctx.lineTo(50+i*40, responseDataToHigh[per4list[i]-1]);
 		}
 		ctx.stroke();
-
+		// よい点、可能性、進歩の状況をそれぞれの観点について判定する
+		// ※12回分ない場合は判定をしないようにしなくてはいけない
 		var per1Yoi = analyzeYoi(per1list);
 		var per2Yoi = analyzeYoi(per2list);
 		var per3Yoi = analyzeYoi(per3list);
@@ -188,7 +192,7 @@
 		var per3Shinpo = analyzeShinpo(per3list);
 		var per4Shinpo = analyzeShinpo(per4list);
 
-
+		// ※それぞれの判定に応じて、drawImageを利用してctxに画像を設置する（125-132参照）
 
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
@@ -202,13 +206,17 @@
 
 	function analyzeYoi(list){
 		// ここによい点のロジックを書く
+
 		// よい点、一つ目のロジック
+		// ※よい点には、二種類の条件があるので、もう一つの条件を作って、どちらかが満たされた時に1を返すようにしなくてはいけない
 		// 平均
 		var ave = average(list);
 		// console.log(ave);
+
 		// 分散
 		var vari = variance(list);
 		// console.log(vari);
+
 		// 2以上一気に減った回数
 		var downCount = 0;
 		for(var i = 0; i < 11 ; i++){
@@ -218,7 +226,7 @@
 		}
 		// console.log(downCount);
 
-		// 総合して判定
+		// 上の3種類の条件を総合して判定する
 		if(ave>=4.5 && vari <= 0.4 && downCount <=1){
 			return 1;
 		} else {
@@ -236,10 +244,13 @@
 
 	}
 
+	//windowが読み込まれた時に、drawLineの関数を実行する
 	window.onload = drawLine;
 
 
 	// 計算用の関数
+
+	// 和
 	function sum(array){
 	    var sum = 0;
 	    for (var i=0,len=array.length; i<len; ++i) {
@@ -248,9 +259,11 @@
 	    return sum;
 	}
 
+	// 平均
 	function average(array){
 	    return sum(array)/array.length;
 	}
+
 	// 分散
 	function variance(array){
 	    var ave = average(array);
