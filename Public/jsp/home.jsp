@@ -188,6 +188,8 @@
 		var per3Shinpo = analyzeShinpo(per3list);
 		var per4Shinpo = analyzeShinpo(per4list);
 
+
+
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
 			var img_png_src = canvas.toDataURL();
@@ -200,14 +202,17 @@
 
 	function analyzeYoi(list){
 		// ここによい点のロジックを書く
+
 	}
 
 	function analyzeKanousei(list){
 		// ここに可能性のロジックを書く
+
 	}
 
 	function analyzeShinpo(list){
 		// ここに進歩のロジックを書く
+
 	}
 
 	window.onload = drawLine;
