@@ -94,6 +94,7 @@
 
 <script type="text/javascript" src="../common/excanvas.js"></script>
 <script>
+	// ルーブリックの値を格納する配列
 	var per1list = [];
 	var per2list = [];
 	var per3list = [];
