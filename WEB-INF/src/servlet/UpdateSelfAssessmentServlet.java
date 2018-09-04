@@ -13,7 +13,7 @@ import beans.ResponseData;
 import beans.User;
 import dao.ResponseDataDAO;
 
-public class ReceiveSelfAssessmentServlet extends HttpServlet {
+public class UpdateSelfAssessmentServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -45,7 +45,7 @@ public class ReceiveSelfAssessmentServlet extends HttpServlet {
 		ResponseDataDAO responseDataDAO = new ResponseDataDAO();
 
 		//responseDataをDBに登録
-		responseDataDAO.registResponseData(responseData);
+		responseDataDAO.updateResponseData(responseData);
 
 		// ログインしたユーザーが記録した反応データをデータベースから読み出す（配列になるので、ArrayList）
 		ArrayList<ResponseData> responseDataList = responseDataDAO.selectResponseData(user.getId());
