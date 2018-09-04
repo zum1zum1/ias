@@ -202,7 +202,28 @@
 
 	function analyzeYoi(list){
 		// ここによい点のロジックを書く
+		// よい点、一つ目のロジック
+		// 平均
+		var ave = average(list);
+		// console.log(ave);
+		// 分散
+		var vari = variance(list);
+		// console.log(vari);
+		// 2以上一気に減った回数
+		var downCount = 0;
+		for(var i = 0; i < 11 ; i++){
+			if(list[i+1]+2<=list[i]){
+				downCount++;
+			}
+		}
+		// console.log(downCount);
 
+		// 総合して判定
+		if(ave>=4.5 && vari <= 0.4 && downCount <=1){
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	function analyzeKanousei(list){
@@ -218,6 +239,27 @@
 	window.onload = drawLine;
 
 
+	// 計算用の関数
+	function sum(array){
+	    var sum = 0;
+	    for (var i=0,len=array.length; i<len; ++i) {
+	        sum += array[i];
+	    };
+	    return sum;
+	}
+
+	function average(array){
+	    return sum(array)/array.length;
+	}
+	// 分散
+	function variance(array){
+	    var ave = average(array);
+	    var varia = 0;
+	    for (i=0; i<array.length; i++) {
+	        varia = varia + Math.pow(array[i] - ave, 2);
+	    }
+	    return (varia / array.length);
+	}
 
 
 </script>
