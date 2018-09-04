@@ -17,7 +17,7 @@
 </head>
 
 <jsp:include page="../common/style.jsp" />
-	<div class="image-box graph">
+	<div class="image-box graph" align="center">
 		<canvas id="canvassample" width="500" height="500">	</canvas>
 	</div>
 <div class="col col-12 col-lg-12">
@@ -107,6 +107,8 @@
 	console.log(per1list);
 	var responseDataToHigh = [250,200,150,100,50];
 
+
+
 	function drawLine(){
 		/* canvas要素のノードオブジェクト */
 		var canvas = document.getElementById('canvassample');
@@ -170,8 +172,20 @@
 		}
 		ctx.stroke();
 
+		var per1Yoi = analyzeYoi(per1list);
+		var per2Yoi = analyzeYoi(per2list);
+		var per3Yoi = analyzeYoi(per3list);
+		var per4Yoi = analyzeYoi(per4list);
 
+		var per1Kanousei = analyzeKanousei(per1list);
+		var per2Kanousei = analyzeKanousei(per2list);
+		var per3Kanousei = analyzeKanousei(per3list);
+		var per4Kanousei = analyzeKanousei(per4list);
 
+		var per1Shinpo = analyzeShinpo(per1list);
+		var per2Shinpo = analyzeShinpo(per2list);
+		var per3Shinpo = analyzeShinpo(per3list);
+		var per4Shinpo = analyzeShinpo(per4list);
 
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
@@ -183,11 +197,21 @@
 		}
 	}
 
-	function analyze(){
+	function analyzeYoi(list){
+		// ここによい点のロジックを書く
+	}
 
+	function analyzeKanousei(list){
+		// ここに可能性のロジックを書く
+	}
+
+	function analyzeShinpo(list){
+		// ここに進歩のロジックを書く
 	}
 
 	window.onload = drawLine;
+
+
 
 
 </script>
