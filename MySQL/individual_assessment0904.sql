@@ -39,7 +39,7 @@ CREATE TABLE `lessons` (
 --
 
 INSERT INTO `lessons` (`id`, `title`, `date`) VALUES
-(1, '??1', '0901'),
+(1, '授業1', '0901'),
 (2, '授業2', '0902'),
 (3, '授業3', '0903'),
 (4, '授業4', '0904'),
