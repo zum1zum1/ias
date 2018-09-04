@@ -105,6 +105,44 @@ public class ResponseDataDAO extends DriverAccessor {
 		}
 	}
 
+	public void updateResponseData(ResponseData responseData) {
+
+		//コネクションの接続開始
+		Connection con = null;
+		con = createConnection();
+
+		try {
+
+			//update文の宣言（例えば、responseData.getUserId()）
+			String sql = "update response_data set per1 = ?,per2 = ?, per3 = ?, per4 = ? where user_id = ? and lesson_id = ?";
+
+			//PreparedStatementの宣言開始（DBに格納するための変数の宣言）
+			PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+
+			//テーブルに値をset
+			stmt.setInt(1, responseData.getPer1());
+			stmt.setInt(2, responseData.getPer2());
+			stmt.setInt(3, responseData.getPer3());
+			stmt.setInt(4, responseData.getPer4());
+			stmt.setInt(5, responseData.getUserId());
+			stmt.setInt(6, responseData.getLessonId());
+
+
+			//DBのUpdate
+			stmt.executeUpdate();
+
+			//PreparedStatementの終了
+			stmt.close();
+
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+			return;
+		} finally {
+		}
+	}
+
 	public int checkDoneSelfAssessment(int userId,int lessonId) {
 
 		//コネクションの接続開始
