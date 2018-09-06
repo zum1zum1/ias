@@ -208,7 +208,6 @@
 		// ここによい点のロジックを書く
 
 		// よい点、一つ目のロジック
-		// ※よい点には、二種類の条件があるので、もう一つの条件を作って、どちらかが満たされた時に1を返すようにしなくてはいけない
 		// 平均
 		var ave = average(list);
 		// console.log(ave);
@@ -225,13 +224,45 @@
 			}
 		}
 		// console.log(downCount);
-
 		// 上の3種類の条件を総合して判定する
+		var judge1 = -1;
 		if(ave>=4.5 && vari <= 0.4 && downCount <=1){
+			judge1 = 1;
+		} else {
+			judge1 = 0;
+		}
+		console.log(judge1);
+
+		// よい点、二つ目のロジック
+		// 先ずは、配列を前半と後半に分割する
+		var firstHalfList = list.slice(0,6);
+		var secondHalfList = list.slice(6,12);
+		// console.log(firstHalfList);
+		// console.log(secondHalfList);
+		// 前半と後半の平均をそれぞれ求める
+		var firstAve = average(firstHalfList);
+		var secondAve = average(secondHalfList);
+
+		// 後半の分散を求める
+		var secondVari = variance(secondHalfList);
+		// console.log(secondVari);
+		// 上の条件を用いたりして判定する
+		var judge2 = -1;
+		if(secondAve >= 4.5 && secondVari <= 0.4 && secondAve-firstAve >= 1.3 && downCount <= 1){
+			judge2 = 1;
+		} else {
+			judge2 = 0;
+		}
+		console.log(judge2);
+
+		// 上の二つの判定の結果、どちらかが1だったら1を返す
+		var finalJudge = -1;
+		if(judge1 == 1 || judge2 == 1 ){
 			return 1;
 		} else {
 			return 0;
 		}
+
 	}
 
 	function analyzeKanousei(list){
@@ -243,6 +274,26 @@
 		// ここに進歩のロジックを書く
 
 	}
+
+
+	function drawYoi(list,picName){
+		/* Imageオブジェクトを生成 */
+		var imgY = new Image();
+		img.src = "../img/axis.png";
+		/* 画像が読み込まれるのを待ってから処理を続行 */
+		img.onload = function() {
+		ctx.drawImage(img, 0, 0);
+		}
+	}
+
+	function drawKanousei(list,picName){
+
+	}
+
+	function drawShinpo(list,picName){
+
+	}
+
 
 	//windowが読み込まれた時に、drawLineの関数を実行する
 	window.onload = drawLine;
