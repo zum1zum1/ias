@@ -95,7 +95,6 @@
 		per3list.push(<%=responseDataList.get(i).getPer3()%>);
 		per4list.push(<%=responseDataList.get(i).getPer4()%>);
 	<% } %>
-	console.log(per1list);
 	// 折れ線を書く時にy座標の位置を指定するための配列
 	var responseDataToHigh = [250,200,150,100,50];
 	var yoiDrawList = [220,170,120,70,20];
@@ -223,6 +222,50 @@
 
 
 		// 可能性の描画
+		if(per1Kanousei == 1){
+			ctx.strokeStyle = 'rgb(0,0,0)';
+			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#000000";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
+			}}
+		ctx.stroke(); //できた線を描画する
+		ctx.shadowBlur = 0;  //ぼかし終了
+		if(per2Kanousei == 1){
+			ctx.strokeStyle = 'rgb(0,0,255)';
+			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#0000ff";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per2list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per2list[i]-1]);
+			}}
+		ctx.stroke(); //できた線を描画する
+		ctx.shadowBlur = 0;  //ぼかし終了
+		if(per3Kanousei == 1){
+			ctx.strokeStyle = 'rgb(0,255,0)';
+			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#00ff00";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per3list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per3list[i]-1]);
+			}}
+		ctx.stroke(); //できた線を描画する
+		ctx.shadowBlur = 0;  //ぼかし終了
+		if(per4Kanousei == 1){
+			ctx.strokeStyle = 'rgb(255,0,0)';
+			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#ff0000";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per4list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per4list[i]-1]);
+			}}
+		ctx.stroke(); //できた線を描画する
+		ctx.shadowBlur = 0;  //ぼかし終了
 
 		// 進歩の描画
 		if(per1Shinpo == 1){
@@ -323,11 +366,25 @@
 
 	function analyzeKanousei(list){
 		// ここに可能性のロジックを書く
-		var middleList = list.slice(3,8);
+		var middleList = list.slice(4,8);
 		var finalList = list.slice(8,12);
-
+		// 平均が1以上上がっている
 		var middleAve = average(middleList);
 		var finalAve = average(finalList);
+
+		var averageUp = -1;
+		if(middleAve+1<=finalAve){
+			averageUp = 1;
+		} else {
+			averageUp = 0;
+		}
+
+		// 近似曲線の傾き ※まだできていないです
+
+		// 暫定的に、いまできている条件のみで値を返す
+		console.log(averageUp);
+		return averageUp;
+
 	}
 
 	function analyzeShinpo(list){
