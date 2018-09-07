@@ -18,7 +18,7 @@
 
 <jsp:include page="../common/style.jsp" />
 <div class="image-box graph" align="center">
-	<canvas id="canvassample" width="600" height="500">	</canvas>
+	<canvas id="canvassample" width="550" height="380">	</canvas>
 </div>
 <div class="col col-12 col-lg-12">
 
@@ -382,8 +382,20 @@
 		// 近似曲線の傾き ※まだできていないです
 
 		// 暫定的に、いまできている条件のみで値を返す
-		console.log(averageUp);
-		return averageUp;
+		// console.log(averageUp);
+
+		var middleSlope = lineSlope(middleList);
+		var finalSlope = lineSlope(finalList);
+
+		var judge = -1;
+
+		if(middleSlope>=-0.3 && middleSlope+0.3<=finalSlope && averageUp == 1){
+			judge = 1;
+		} else {
+			judge = 0;
+		}
+
+		return judge;
 
 	}
 
@@ -476,6 +488,29 @@
 	        varia = varia + Math.pow(array[i] - ave, 2);
 	    }
 	    return (varia / array.length);
+	}
+
+	function sigmaXY(xlist,ylist){
+		var sigma = 0;
+		var temp = 0;
+		for(i=0;i<xlist.length;i++){
+			temp = xlist[i]*ylist[i];
+			sigma += temp;
+		}
+		return sigma;
+	}
+
+	function lineSlope(ylist){
+		var xlist = [1,2,3,4];
+		var sample = 4;
+		var xAve = average(xlist);
+		var yAve = average(ylist);
+		var sigmaXiXi = sigmaXY(xlist,xlist);
+		var sigmaXiYi = sigmaXY(xlist,ylist);
+		var slope = 0;
+		slope = (sigmaXiYi-sample*xAve*yAve)/(sigmaXiXi-sample*xAve*xAve);
+		// console.log(slope);
+		return slope;
 	}
 
 
