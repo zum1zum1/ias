@@ -76,8 +76,11 @@
 				%>
 		</tr>
 	</table>
-
-	<a href="SelectLessonServlet" role="button">自己評価を行う</a>
+	<br>
+	<form class="form" method="post" action="./SelectLessonServlet">
+		<center><button type='submit' class="btn btn-primary btn-lg" >自己評価を行う</button></center>
+		<br>
+	</form>
 </div>
 </body>
 </html>

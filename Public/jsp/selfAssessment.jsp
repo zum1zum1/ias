@@ -21,7 +21,7 @@
 </head>
 
 <jsp:include page="../common/style.jsp" />
-
+<br>
 <%=lessonId%>
 <% if(selfAssessmentCheck == 0) {
 out.println("<form action='ReceiveSelfAssessmentServlet' method='POST'>");
@@ -272,10 +272,9 @@ out.println("<form action='UpdateSelfAssessmentServlet' method='POST'>");
 		</tbody>
 		<% } %>
 	</table>
-	<input type="submit" value="登録する" id="submit">
-</form>
-
-
+		<button type='submit' class="btn btn-primary btn-lg pull-right" value="登録する" id="submit">登録する</button>&nbsp;&nbsp;
+		<br>
+	</form>
 
 </body>
 </html>

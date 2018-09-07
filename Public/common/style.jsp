@@ -19,7 +19,7 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="navbar-text">
 						<font size="+1">
-							利用者：<%=userName%>
+							利用者：<%=userName%>&nbsp;&nbsp;
 						</font>
 					</li>
 
