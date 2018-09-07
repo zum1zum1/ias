@@ -18,7 +18,7 @@
 
 <jsp:include page="../common/style.jsp" />
 <div class="image-box graph" align="center">
-	<canvas id="canvassample" width="550" height="380">	</canvas>
+	<canvas id="canvassample" width="550" height="500">	</canvas>
 </div>
 <div class="col col-12 col-lg-12">
 
@@ -116,7 +116,7 @@
 		// 軸のファイルを読み込む
 		/* Imageオブジェクトを生成 */
 		var img = new Image();
-		img.src = "../img/axis.png";
+		img.src = "../img/axis_0907.png";
 		/* 画像が読み込まれるのを待ってから処理を続行 */
 		img.onload = function() {
 		ctx.drawImage(img, 0, 0);
@@ -189,35 +189,35 @@
 		// よい点の描画
 		if(per1Yoi == 1){
 		var imgYBK = new Image();
-		imgYBK.src = "../img/yoiBK.png";
+		imgYBK.src = "../img/yoiBK_scale50.png";
 		imgYBK.onload = function() {
-			ctx.drawImage(imgYBK, 30, yoiDrawList[per1list[0]-1]);
+			ctx.drawImage(imgYBK, 35, yoiDrawList[per1list[0]-1]);
 			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYBK, 30+i*40, yoiDrawList[per1list[i]-1]);
+				ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);
 		}}}
 		if(per2Yoi == 1){
 		var imgYB = new Image();
-		imgYB.src = "../img/yoiB.png";
+		imgYB.src = "../img/yoiB_scale50.png";
 		imgYB.onload = function() {
-			ctx.drawImage(imgYB, 30, yoiDrawList[per2list[0]-1]);
+			ctx.drawImage(imgYB, 35, yoiDrawList[per2list[0]-1]);
 			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYB, 30+i*40, yoiDrawList[per2list[i]-1]);
+				ctx.drawImage(imgYB, 35+i*40, yoiDrawList[per2list[i]-1]);
 		}}}
 		if(per3Yoi == 1){
 		var imgYG = new Image();
-		imgYG.src = "../img/yoiG.png";
+		imgYG.src = "../img/yoiG_scale50.png";
 		imgYG.onload = function() {
-			ctx.drawImage(imgYG, 30, yoiDrawList[per3list[0]-1]);
+			ctx.drawImage(imgYG, 35, yoiDrawList[per3list[0]-1]);
 			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYG, 30+i*40, yoiDrawList[per3list[i]-1]);
+				ctx.drawImage(imgYG, 35+i*40, yoiDrawList[per3list[i]-1]);
 		}}}
 		if(per4Yoi == 1){
 		var imgYR = new Image();
-		imgYR.src = "../img/yoiR.png";
+		imgYR.src = "../img/yoiR_scale50.png";
 		imgYR.onload = function() {
-			ctx.drawImage(imgYR, 30, yoiDrawList[per4list[0]-1]);
+			ctx.drawImage(imgYR, 35, yoiDrawList[per4list[0]-1]);
 			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYR, 30+i*40, yoiDrawList[per4list[i]-1]);
+				ctx.drawImage(imgYR, 35+i*40, yoiDrawList[per4list[i]-1]);
 		}}}
 
 
