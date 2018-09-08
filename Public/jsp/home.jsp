@@ -167,7 +167,7 @@
 		var imgSBK = new Image();
 		imgSBK.src = "../img/shinpoB.png";
 		imgSBK.onload = function() {
-			ctx.drawImage(imgSBK, 350, responseDataToHigh[per1list[9]-1]);
+			ctx.drawImage(imgSBK, 350, responseDataToHigh[per1list[8]]);
 		}}
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {

@@ -22,15 +22,12 @@ public class UserDAO extends DriverAccessor {
 			// sql文を書く   引数として受け取ったユーザーIDと一致するユーザーIDのレコードをusersテーブルからSELECTする
 			String sql = "select * from users where user_id = '" + userId + "';";
 
-
-
 			// Statementの宣言
 			Statement stmt = con.createStatement();
 			// ResultSetの宣言とsqlの実行
 			ResultSet rs = stmt.executeQuery(sql);
 			// ResultSetで次のレコードを見る
 			rs.next();
-
 
 			// 新しくuserを宣言し、SELECTした結果を代入する
 			User user = new User(rs.getInt("id"), rs.getString("user_id"), rs.getString("password"));
