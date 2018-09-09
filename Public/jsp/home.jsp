@@ -152,9 +152,10 @@
 		}}}
 		// 可能性の描画
 		if(per1Kanousei == 1){
-			ctx.strokeStyle = 'rgb(0,0,255)';
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = 'rgb(0,128,255)';
 			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
-			ctx.shadowColor = "#000000";  //ぼかしの色を定義
+			ctx.shadowColor = "#e6b422";  //ぼかしの色を定義
 			ctx.beginPath();
 			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
 			for(var i = 9 ; i < 12 ; i++){
@@ -165,9 +166,9 @@
 		// 進歩の描画
 		if(per1Shinpo == 1){
 		var imgSBK = new Image();
-		imgSBK.src = "../img/shinpoB.png";
+		imgSBK.src = "../img/shinpo2B.png";
 		imgSBK.onload = function() {
-			ctx.drawImage(imgSBK, 350, responseDataToHigh[per1list[8]]);
+			ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]);
 		}}
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
