@@ -5,6 +5,7 @@
 <%
 	@SuppressWarnings("unchecked")
 	ArrayList<ResponseData> responseDataList = (ArrayList<ResponseData>) session.getAttribute("responseDataList");
+
 %>
 <html>
 <head>
@@ -21,7 +22,6 @@
 	<canvas id="canvassample" width="550" height="430">	</canvas>
 </div>
 <div class="col col-12 col-lg-12">
-
 	<table class="table table-hover">
 		<thead class="thead-light">
 			<tr>
