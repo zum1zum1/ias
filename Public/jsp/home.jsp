@@ -10,22 +10,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<jsp:include page="../common/bootstrap.jsp" />
+<link href="../common/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <title>トップ画面</title>
 </head>
 
-<jsp:include page="../common/style.jsp" />
+<jsp:include page="../common/jsp/userLayout.jsp" />
 
 <div class="container">
-	<div class="row" style="padding: 60px 0 0 0">
-		<div class="col col-12 col-lg-12">
+	<div class="row" style="padding: 100px 0 0 0">
+		<div class="col-xs-12 col-sm-12 col-md-12">
 			<a href="SelectLessonServlet"> <font size="+2"> <span
 					class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-					学習をふりかえる
+					自己評価を行う画面に移動する
 			</font>
 			</a>
 			<div class="image-box graph" align="center">
-				<canvas id="canvassample" width="550" height="500">	</canvas>
+				<canvas id="canvassample" width="600" height="500">	</canvas>
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 </body>
 </html>
 
-<script type="text/javascript" src="../common/excanvas.js"></script>
+<script type="text/javascript" src="../common/canvas/excanvas.js"></script>
 <script type="text/javascript">
 	// ルーブリックの値を格納する配列
 	var per1list = [];
