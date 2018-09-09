@@ -47,4 +47,30 @@ public class LessonDAO extends DriverAccessor {
 		}
 	}
 
+	public Lesson identifyLesson(int lessonId) {
+
+		Connection con = null;
+		con = createConnection();
+
+		try {
+
+			String sql = "select * from lessons where id = " + lessonId;
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			rs.first();
+
+			Lesson lesson = new Lesson(rs.getInt("id"), rs.getString("title"),rs.getString("date"));
+
+			stmt.close();
+			rs.close();
+			return lesson;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+
+		} finally {
+		}
+	}
+
 }

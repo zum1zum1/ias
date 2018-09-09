@@ -56,14 +56,10 @@ public class LoginUserServlet extends HttpServlet {
 			response.sendRedirect("/ias/");
 		} else if (checkId == 1) {
 
-
-
 			// 反応データを読み出すためのDAOを宣言する
 			ResponseDataDAO responseDataDAO = new ResponseDataDAO();
 			// ログインしたユーザーが記録した反応データをデータベースから読み出す（配列になるので、ArrayList）
 			ArrayList<ResponseData> responseDataList = responseDataDAO.selectResponseData(user.getId());
-
-
 
 			// sessionの開始
 			HttpSession session = request.getSession(true);
@@ -71,7 +67,6 @@ public class LoginUserServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			// 反応データのArrayListをセッションに格納する
 			session.setAttribute("responseDataList",responseDataList);
-
 
 			// home.jspに飛ばす
 			getServletContext().getRequestDispatcher("/Public/jsp/home.jsp").forward(request, response);
