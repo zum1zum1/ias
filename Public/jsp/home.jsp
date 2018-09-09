@@ -4,100 +4,48 @@
 <%@ page import="beans.ResponseData"%>
 <%
 	@SuppressWarnings("unchecked")
-	ArrayList<ResponseData> responseDataList = (ArrayList<ResponseData>) session.getAttribute("responseDataList");
+	ArrayList<ResponseData> responseDataList = (ArrayList<ResponseData>) session
+			.getAttribute("responseDataList");
 %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Language" content="ja" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<jsp:include page="../common/bootstrap.jsp" />
+<link href="../common/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <title>トップ画面</title>
 </head>
 
-<jsp:include page="../common/style.jsp" />
-<div class="image-box graph" align="center">
-	<canvas id="canvassample" width="550" height="500">	</canvas>
-</div>
-<div class="col col-12 col-lg-12">
+<jsp:include page="../common/jsp/userLayout.jsp" />
 
-	<table class="table table-hover">
-		<thead class="thead-light">
-			<tr>
-				<th>LessonId</th>
-				<%
-					for(int i=0;i<responseDataList.size();i++){
-				%>
-				<th><%=responseDataList.get(i).getLessonId()%></th>
-				<%
-					}
-				%>
-			</tr>
-		</thead>
-		<tr>
-			<th>per1</th>
-			<%
-					for(int i=0;i<responseDataList.size();i++){
-					%>
-			<th><%=responseDataList.get(i).getPer1()%></th>
-			<%
-					}
-				%>
-		</tr>
-		<tr>
-			<th>per2</th>
-			<%
-					for(int i=0;i<responseDataList.size();i++){
-					%>
-			<th><%=responseDataList.get(i).getPer2()%></th>
-			<%
-					}
-				%>
-		</tr>
-		<tr>
-			<th>per3</th>
-			<%
-					for(int i=0;i<responseDataList.size();i++){
-					%>
-			<th><%=responseDataList.get(i).getPer3()%></th>
-			<%
-					}
-				%>
-		</tr>
-		<tr>
-			<th>per4</th>
-			<%
-					for(int i=0;i<responseDataList.size();i++){
-					%>
-			<th><%=responseDataList.get(i).getPer4()%></th>
-			<%
-					}
-				%>
-		</tr>
-	</table>
-	<br>
-	<form class="form" method="post" action="./SelectLessonServlet">
-		<center><button type='submit' class="btn btn-primary btn-lg" >自己評価を行う</button></center>
-		<br>
-	</form>
+<div class="container">
+	<div class="row" style="padding: 100px 0 0 0">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<a href="SelectLessonServlet"> <font size="+2"> <span
+					class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+					自己評価を行う画面に移動する
+			</font>
+			</a>
+			<div class="image-box graph" align="center">
+				<canvas id="canvassample" width="600" height="500">	</canvas>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>
 
-<script type="text/javascript" src="../common/excanvas.js"></script>
-<script>
+<script type="text/javascript" src="../common/canvas/excanvas.js"></script>
+<script type="text/javascript">
 	// ルーブリックの値を格納する配列
 	var per1list = [];
 	var per2list = [];
 	var per3list = [];
 	var per4list = [];
-	<% for(int i=0;i<responseDataList.size();i++){ %>
+	<%for (int i = 0; i < responseDataList.size(); i++) {%>
 		per1list.push(<%=responseDataList.get(i).getPer1()%>);
 		per2list.push(<%=responseDataList.get(i).getPer2()%>);
 		per3list.push(<%=responseDataList.get(i).getPer3()%>);
 		per4list.push(<%=responseDataList.get(i).getPer4()%>);
-	<% } %>
+	<%}%>
 	// 折れ線を書く時にy座標の位置を指定するための配列
 	var responseDataToHigh = [250,200,150,100,50];
 	var yoiDrawList = [220,170,120,70,20];
@@ -515,6 +463,4 @@
 		// console.log(slope);
 		return slope;
 	}
-
-
 </script>

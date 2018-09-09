@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.Lesson;
 import beans.ResponseData;
 import beans.User;
 import dao.ResponseDataDAO;
@@ -29,8 +30,10 @@ public class ReceiveSelfAssessmentServlet extends HttpServlet {
 
 		//sessionでuserIdの受け取り
 		User user = (User) session.getAttribute("user");
+
 		//sessionでlessonIdの受け取り
-		int lessonId = (int) session.getAttribute("lessonId");
+		Lesson lesson = (Lesson) session.getAttribute("lesson");
+		int lessonId = lesson.getId();
 
 		//.jspで入力されたrubricの値を受け取る(4回分)
 		int per1 = Integer.parseInt(request.getParameter("per1"));

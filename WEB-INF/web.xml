@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
 	version="2.4">
 
+	<welcome-file-list>
+		<welcome-file>/Public/jsp/index.jsp</welcome-file>
+	</welcome-file-list>
+
 	<servlet>
 		<servlet-name>LoginUserServlet</servlet-name>
 		<servlet-class>servlet.LoginUserServlet</servlet-class>
