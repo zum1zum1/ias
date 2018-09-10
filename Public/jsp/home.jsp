@@ -115,9 +115,9 @@
 		// 進歩の描画
 		if(per1Shinpo == 1){
 		var imgSBK = new Image();
-		imgSBK.src = "../img/shinpo2B.png";
+		imgSBK.src = "../img/shinpo2B_2up.png";
 		imgSBK.onload = function() {
-			ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]);
+			ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-60);
 		}}
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
