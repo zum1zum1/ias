@@ -93,31 +93,55 @@
 		// よい点の描画
 		if(per1Yoi == 1){
 		var imgYBK = new Image();
-		imgYBK.src = "../img/yoiB_scale50.png";
+		imgYBK.src = "../img/yoi2B_scale50.png";
 		imgYBK.onload = function() {
-			ctx.drawImage(imgYBK, 35, yoiDrawList[per1list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);
-		}}}
+			ctx.drawImage(imgYBK, 35+11*40, yoiDrawList[per1list[11]-1]);
+//			for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+			}}
 		// 可能性の描画
 		if(per1Kanousei == 1){
-			ctx.lineWidth = 5;
-			ctx.strokeStyle = 'rgb(0,128,255)';
-			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
-			ctx.shadowColor = "#e6b422";  //ぼかしの色を定義
+			ctx.lineWidth = 8;
+			ctx.strokeStyle = 'rgb(255,255,0)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
 			ctx.beginPath();
 			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
 			for(var i = 9 ; i < 12 ; i++){
 				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
-			}}
-		ctx.stroke(); //できた線を描画する
+			}
+			ctx.stroke(); //できた線を描画する
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = 'rgb(0,0,255)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
+			}
+			ctx.stroke(); //できた線を描画する
+
+		}
+
 		ctx.shadowBlur = 0;  //ぼかし終了
 		// 進歩の描画
 		if(per1Shinpo == 1){
 		var imgSBK = new Image();
-		imgSBK.src = "../img/shinpo2B_2up.png";
-		imgSBK.onload = function() {
-			ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-60);
+		if(per1list[8]+1==per1list[11]){
+			imgSBK.src = "../img/shinpo3B_1up.png";
+			imgSBK.onload = function() {
+				ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-20);
+			}
+		} else if (per1list[8]+2==per1list[11]) {
+			imgSBK.src = "../img/shinpo3B_2up.png";
+			imgSBK.onload = function() {
+				ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-70);
+			}
+		} else {
+			imgSBK.src = "../img/shinpo3B_3up.png";
+			imgSBK.onload = function() {
+				ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-100);
+			}
 		}}
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
