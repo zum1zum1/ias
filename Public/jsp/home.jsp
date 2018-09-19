@@ -93,9 +93,9 @@
 		// よい点の描画
 		if(per1Yoi == 1){
 		var imgYBK = new Image();
-		imgYBK.src = "../img/yoi2B_scale50.png";
+		imgYBK.src = "../img/yoi7B_reverse.png";
 		imgYBK.onload = function() {
-			ctx.drawImage(imgYBK, 35+11*40, yoiDrawList[per1list[11]-1]);
+			ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per1list[11]-1]-4);
 //			for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
 			}}
 		// 可能性の描画
@@ -128,9 +128,9 @@
 		if(per1Shinpo == 1){
 		var imgSBK = new Image();
 		if(per1list[8]+1==per1list[11]){
-			imgSBK.src = "../img/shinpo3B_1up.png";
+			imgSBK.src = "../img/shinpo5B_1up.png";
 			imgSBK.onload = function() {
-				ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-20);
+				ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-10);
 			}
 		} else if (per1list[8]+2==per1list[11]) {
 			imgSBK.src = "../img/shinpo3B_2up.png";
