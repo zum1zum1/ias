@@ -46,7 +46,7 @@ public class ProductDAO extends DriverAccessor {
 		}
 	}
 
-	public ArrayList<Product> searchAllProduct(int userId, int lessonId) {
+	public ArrayList<Product> searchAllProduct(String userId, int lessonId) {
 
 		Connection con = null;
 		con = createConnection();
