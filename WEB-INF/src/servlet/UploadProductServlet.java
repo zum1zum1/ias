@@ -17,9 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import beans.Lesson;
 import beans.Product;
+import beans.ResponseData;
 import beans.User;
 import dao.ProductDAO;
+import dao.ResponseDataDAO;
 
 @SuppressWarnings("serial")
 // 最大MaxSize
@@ -40,14 +43,15 @@ public class UploadProductServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		String userId = user.getUserId();
 
-		int lessonId = (int) session.getAttribute("lessonId");
+		Lesson lesson = (Lesson) session.getAttribute("lesson");
+		int lessonId = lesson.getId();
 
 		// ファイル以外の入力情報の取得
 		String title = request.getParameter("title");
 		String comment = request.getParameter("comment");
 
 		// ファイル保存先
-		final File uploadDir = new File("C:/" + userId + "/" + lessonId);
+		final File uploadDir = new File("C:/ias_product/" + userId + "/" + lessonId);
 		Part fl = request.getPart("fl");
 
 		// ファイル名が重複するのを防ぐため、時間を取得する
@@ -63,12 +67,28 @@ public class UploadProductServlet extends HttpServlet {
 
 		// DBに保存
 		ProductDAO productDAO = new ProductDAO();
-		productDAO.registProduct(title, path, changeProductName, comment, userId,lessonId);
+		productDAO.registProduct(title, path, changeProductName, comment, userId, lessonId);
 
 		// lessonId（とuserId）が一致する成果物をDBから検索する
 		ProductDAO searchProductDAO = new ProductDAO();
-		ArrayList<Product> productList = (ArrayList<Product>) searchProductDAO.searchAllProduct(userId,lessonId);
+		ArrayList<Product> productList = (ArrayList<Product>) searchProductDAO.searchAllProduct(userId, lessonId);
 		session.setAttribute("productList", productList);
+
+		// 以降は、ルーブリックを用いた自己評価の記録について
+		// 反応データを読み出すためのDAOを宣言する
+		ResponseDataDAO responseDataDAO = new ResponseDataDAO();
+		// ログインしているユーザーのIDと選択されているlessonIdを用いて，その回の自己評価が既に行われているかをチェックする
+		int selfAssessmentCheck = responseDataDAO.checkDoneSelfAssessment(user.getId(), lessonId);
+
+		// 既に行われていた場合、その自己評価を取ってきて、そうでない場合は、持ってこない
+		if (selfAssessmentCheck == 1) {
+			ResponseData responseData = responseDataDAO.selectOneResponseData(user.getId(), lessonId);
+			request.setAttribute("responseData", responseData);
+		}
+
+		// 後のservletで使うからsessionで保持
+		session.setAttribute("lesson", lesson);
+		request.setAttribute("selfAssessmentCheck", selfAssessmentCheck);
 
 		getServletContext().getRequestDispatcher("/Public/jsp/selfAssessment.jsp").forward(request, response);
 	}

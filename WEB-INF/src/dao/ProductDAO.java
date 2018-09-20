@@ -24,7 +24,7 @@ public class ProductDAO extends DriverAccessor {
 		con = createConnection();
 
 		try {
-			String sql = "insert into products(id,title,path,product_name,date,comment,user_id) values(?, ?, ?, ?, ?,?,?,?)";
+			String sql = "insert into products(id,title,path,product_name,date,comment,user_id,lesson_id) values(?, ?, ?, ?, ?,?,?,?)";
 			PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 			stmt.setInt(1, 0);
 			stmt.setString(2, title);
