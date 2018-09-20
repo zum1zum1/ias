@@ -71,4 +71,13 @@
 		<url-pattern>/Public/jsp/GoHomeServlet</url-pattern>
 	</servlet-mapping>
 
+		<servlet>
+		<servlet-name>ShowProductServlet</servlet-name>
+		<servlet-class>servlet.ShowProductServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowProductServlet</servlet-name>
+		<url-pattern>/Public/jsp/ShowProductServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>
