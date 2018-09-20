@@ -21,6 +21,10 @@ public class Product {
 		this.userId = userId;
 	}
 
+	public Product() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
 	public int getId() {
 		return id;
 	}
