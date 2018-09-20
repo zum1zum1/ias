@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Lesson;
+import beans.Product;
 import beans.ResponseData;
 import beans.User;
 import dao.LessonDAO;
+import dao.ProductDAO;
 import dao.ResponseDataDAO;
 
 public class ShowProductServlet extends HttpServlet {
@@ -45,6 +48,11 @@ public class ShowProductServlet extends HttpServlet {
 			ResponseData responseData = responseDataDAO.selectOneResponseData(user.getId(), lessonId);
 			request.setAttribute("responseData", responseData);
 		}
+
+		// lessonId（とuserId）が一致する成果物をDBから検索する
+		ProductDAO searchProductDAO = new ProductDAO();
+		ArrayList<Product> productList = (ArrayList<Product>) searchProductDAO.searchAllProduct(user.getUserId(), lessonId);
+		session.setAttribute("productList", productList);
 
 		//後のservletで使うからsessionで保持
 		session.setAttribute("lesson", lesson);

@@ -3,14 +3,21 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="beans.ResponseData"%>
 <%@ page import="beans.Lesson"%>
+<%@ page import="beans.Product"%>
+<%@ page import="beans.User"%>
 
 <%
 	Lesson lesson = (Lesson) session.getAttribute("lesson");
 	int selfAssessmentCheck = (int) request.getAttribute("selfAssessmentCheck");
 	ResponseData responseData = (ResponseData) request.getAttribute("responseData");
 	@SuppressWarnings("unchecked")
+	ArrayList<Product> productList = (ArrayList<Product>) session.getAttribute("productList");
+	@SuppressWarnings("unchecked")
 	ArrayList<ResponseData> responseDataList = (ArrayList<ResponseData>) session
 			.getAttribute("responseDataList");
+	User user = (User) session.getAttribute("user");
+	String userId = user.getUserId();
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -44,11 +51,65 @@
 				</div>
 			</div>
 		</div>
+		<!-- 以降は、蓄積した学習成果物を表示する部分 -->
+		<div class="col-xs-4 col-sm-4 col-md-4">
+			<font size="+1">蓄積した成果物</font>
+			<table class="table table-hover">
+				<thead class="thead-light">
+					<tr>
+						<th>タイトル</th>
+						<th>日時</th>
+						<th>振り返りの記録</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- listの長さだけテーブルを作成する -->
 
-
+					<%
+						if (productList.size() != 0) {
+					%>
+					<%
+						for (int i = 0; i < productList.size(); i++) {
+					%>
+					<tr>
+						<td style="word-break: break-all;">
+							<%=productList.get(i).getTitle()%>
+						</td>
+						<td>
+							<%=productList.get(i).getDate()%>
+						</td>
+						<td>
+							<%=productList.get(i).getComment()%>
+						</td>
+						<td>
+							<a href="/ias_product/<%=userId + '/' + lesson.getId() + '/' + productList.get(i).getProductName()%>" target="_blank">確認する</a>
+						</td>
+					</tr>
+					<%
+						}
+					%>
+					<%
+						}
+					%>
+					<%
+						if (productList.size() == 0) {
+					%>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+		</div>
 		<div class="container">
 			<div class="row" style="padding: 70px 0 0 0">
-				<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="col-xs-8 col-sm-8 col-md-8">
 					<font size="+1">自己評価</font>
 					<table class="table">
 						<thead>
