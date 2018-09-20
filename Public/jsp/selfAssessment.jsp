@@ -90,7 +90,7 @@
 							<%=productList.get(i).getComment()%>
 						</td>
 						<td>
-							<a href="/ias_product/<%=userId + '/' + lesson.getId() + '/' + productList.get(i).getProductName()%>" target="_blank">確認する</a>
+							<a class="btn btn-default" href="/ias_product/<%=userId + '/' + lesson.getId() + '/' + productList.get(i).getProductName()%>" target="_blank">確認する</a>
 						</td>
 					</tr>
 					<%
@@ -116,7 +116,9 @@
 		</div>
 	</div>
 
-	<div class="row" style="padding: 40px 0 0 0">
+	<hr />
+
+	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12">
 
 			<!-- 前のページでどの授業を選んだか表示 -->
