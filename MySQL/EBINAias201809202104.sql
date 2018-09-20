@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018 年 9 朁E20 日 12:34
--- サーバのバージョン： 5.7.9-log
+-- Generation Time: 2018 年 9 朁E20 日 14:04
+-- サーバのバージョン： 5.7.13-log
 -- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `individual_assessment`
+-- Database: `ias`
 --
 
 -- --------------------------------------------------------
@@ -63,7 +63,8 @@ CREATE TABLE `products` (
   `product_name` text NOT NULL,
   `date` text NOT NULL,
   `comment` text NOT NULL,
-  `user_id` text NOT NULL
+  `user_id` text NOT NULL,
+  `lesson_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
