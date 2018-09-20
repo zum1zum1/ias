@@ -1,38 +1,146 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="beans.ResponseData"%>
+<%@ page import="beans.Lesson"%>
+
 <%
+	Lesson lesson = (Lesson) session.getAttribute("lesson");
+	int selfAssessmentCheck = (int) request.getAttribute("selfAssessmentCheck");
+	ResponseData responseData = (ResponseData) request.getAttribute("responseData");
 	@SuppressWarnings("unchecked")
 	ArrayList<ResponseData> responseDataList = (ArrayList<ResponseData>) session
 			.getAttribute("responseDataList");
 %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../common/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<title>トップ画面</title>
+<title>成果物確認画面</title>
 </head>
-
 <jsp:include page="../common/jsp/userLayout.jsp" />
 
 <div class="container">
+	<div class="row" style="padding: 70px 0 0 0">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<!-- 前のページでどの授業を選んだか表示 -->
+			<font size="+1">選択した授業</font>
+			<table class="table table-striped table-bordered">
+				<tr class="success">
+					<td class="td-name">授業名</td>
+					<td class="td-price">日付</td>
+				</tr>
+				<tr>
+					<td><%=lesson.getTitle()%></td>
+					<td><%=lesson.getDate()%></td>
+				</tr>
+			</table>
 	<div class="row" style="padding: 100px 0 0 0">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<a href="SelectLessonServlet"> <font size="+2"> <span
-					class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-					自己評価を行う画面に移動する
-			</font>
-			</a>
 			<div class="image-box graph" align="center">
 				<canvas id="canvassample" width="600" height="500">	</canvas>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<div class="container">
+	<div class="row" style="padding: 70px 0 0 0">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<font size="+1">自己評価</font>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>小項目</th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>～～について</td>
+						<td>できていない
+						<% if(responseData.getPer1() == 1){out.println("〇");} %>
+						</td>
+						<td>すこしできている
+						<% if(responseData.getPer1() == 2){out.println("〇");} %>
+						</td>
+						<td>ふつう
+						<% if(responseData.getPer1() == 3){out.println("〇");} %>
+						</td>
+						<td>よくできている
+						<% if(responseData.getPer1() == 4){out.println("〇");} %>
+						</td>
+						<td>非常によくできている
+						<% if(responseData.getPer1() == 5){out.println("〇");} %>
+						</td>
+					</tr>
+					<tr>
+						<td>～～について</td>
+						<td>できていない
+						<% if(responseData.getPer2() == 1){out.println("〇");} %>
+						</td>
+						<td>すこしできている
+						<% if(responseData.getPer2() == 2){out.println("〇");} %>
+						</td>
+						<td>ふつう
+						<% if(responseData.getPer2() == 3){out.println("〇");} %>
+						</td>
+						<td>よくできている
+						<% if(responseData.getPer2() == 4){out.println("〇");} %>
+						</td>
+						<td>非常によくできている
+						<% if(responseData.getPer2() == 5){out.println("〇");} %>
+						</td>
+					</tr>
+					<tr>
+						<td>～～について</td>
+						<td>できていない
+						<% if(responseData.getPer3() == 1){out.println("〇");} %>
+						</td>
+						<td>すこしできている
+						<% if(responseData.getPer3() == 2){out.println("〇");} %>
+						</td>
+						<td>ふつう
+						<% if(responseData.getPer3() == 3){out.println("〇");} %>
+						</td>
+						<td>よくできている
+						<% if(responseData.getPer3() == 4){out.println("〇");} %>
+						</td>
+						<td>非常によくできている
+						<% if(responseData.getPer3() == 5){out.println("〇");} %>
+						</td>
+					</tr>
+					<tr>
+						<td>～～について</td>
+						<td>できていない
+						<% if(responseData.getPer4() == 1){out.println("〇");} %>
+						</td>
+						<td>すこしできている
+						<% if(responseData.getPer4() == 2){out.println("〇");} %>
+						</td>
+						<td>ふつう
+						<% if(responseData.getPer4() == 3){out.println("〇");} %>
+						</td>
+						<td>よくできている
+						<% if(responseData.getPer4() == 4){out.println("〇");} %>
+						</td>
+						<td>非常によくできている
+						<% if(responseData.getPer4() == 5){out.println("〇");} %>
+						</td>
+					</tr>
+				</tbody>
+		</div>
+	</div>
+</div>
 </body>
 </html>
-
 <script type="text/javascript" src="../common/canvas/excanvas.js"></script>
 <script type="text/javascript">
 	// ルーブリックの値を格納する配列
@@ -242,7 +350,7 @@
 			mouseY1 = e.clientY - rect.top;
 			if (mouseX1 > 0 && mouseX1 < 0 + 50) {
 				if (mouseY1 > 0 && mouseY1 < 0 + 50) {
-				    	location.href = "ShowProductServlet?lessonId=1";
+				    	location.href = "ShowProductServlet";
 				}
 			}
 		}
