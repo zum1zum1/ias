@@ -224,6 +224,7 @@
 	// 折れ線を書く時にy座標の位置を指定するための配列
 	var responseDataToHigh = [250,200,150,100,50];
 	var yoiDrawList = [220,170,120,70,20];
+	var selectedLesson = <%=lesson.getId() %>;
 
 	function drawLine(){
 		/* canvas要素のノードオブジェクト */
@@ -312,15 +313,15 @@
 		imgYBK.src = "../img/yoi7B_reverse.png";
 		imgYBK.onload = function() {
 			ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per1list[11]-1]-4);
-//			for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+		//	for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
 			}}
-		// 2~4観点目のための画像を作る
+		// ※2~4観点目のための画像を作る
 		if(per2Yoi == 1){
 			var imgYBK = new Image();
 			imgYBK.src = "../img/yoi7B_reverse.png";
 			imgYBK.onload = function() {
 				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per2list[11]-1]-4);
-//				for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+		//	for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
 				}}
 		if(per3Yoi == 1){
 			var imgYBK = new Image();
@@ -416,7 +417,7 @@
 					ctx.drawImage(imgSBK, 348, responseDataToHigh[per1list[8]]-105);
 				}
 			}}
-		// 2~4観点目の進歩用の画像を後で作る
+		// ※2~4観点目の進歩用の画像を後で作る
 		if(per2Shinpo == 1){
 		var imgSB = new Image();
 		imgSB.src = "../img/shinpoB.png";
@@ -436,41 +437,13 @@
 			ctx.drawImage(imgSR, 350, responseDataToHigh[per4list[9]-1]);
 		}}
 
+		ctx.strokeStyle = 'rgb(0,0,0)';
+		// 選択された学習過程に四角を書く
+		lessonLect(selectedLesson,ctx);
+
+
 		// マウスクリックの際に指定の範囲をクリックしていた場合はそれに応じて飛ぶ
 		canvas.addEventListener("mousedown", mouseDownListner, false);
-		function mouseDownListner(e) {
-			var rect = e.target.getBoundingClientRect();
-			//座標取得
-			mouseX1 = e.clientX - rect.left;
-			mouseY1 = e.clientY - rect.top;
-			if (mouseY1 > 30 && mouseY1 < 30 + 270){
-				if (mouseX1 > 44 && mouseX1 < 44 + 26) {
-				    	location.href = "ShowProductServlet?lessonId=1";
-				} else if(mouseX1 > 70 && mouseX1 < 70 + 40){
-						location.href = "ShowProductServlet?lessonId=2";
-				} else if(mouseX1 > 110 && mouseX1 < 110 + 40){
-						location.href = "ShowProductServlet?lessonId=3";
-				} else if(mouseX1 > 150 && mouseX1 < 150 + 40){
-						location.href = "ShowProductServlet?lessonId=4";
-				} else if(mouseX1 > 190 && mouseX1 < 190 + 40){
-						location.href = "ShowProductServlet?lessonId=5";
-				} else if(mouseX1 > 230 && mouseX1 < 230 + 37){
-						location.href = "ShowProductServlet?lessonId=6";
-				} else if(mouseX1 > 267 && mouseX1 < 267 + 39){
-						location.href = "ShowProductServlet?lessonId=7";
-				} else if(mouseX1 > 306 && mouseX1 < 306 + 39){
-						location.href = "ShowProductServlet?lessonId=8";
-				} else if(mouseX1 > 345 && mouseX1 < 345 + 41){
-						location.href = "ShowProductServlet?lessonId=9";
-				} else if(mouseX1 > 386 && mouseX1 < 386 + 38){
-						location.href = "ShowProductServlet?lessonId=10";
-				} else if(mouseX1 > 424 && mouseX1 < 424 + 38){
-						location.href = "ShowProductServlet?lessonId=11";
-				} else if(mouseX1 > 462 && mouseX1 < 462 + 35){
-						location.href = "ShowProductServlet?lessonId=12";
-				}
-			}
-		}
 
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
@@ -655,4 +628,66 @@
 		// console.log(slope);
 		return slope;
 	}
+
+	function mouseDownListner(e) {
+		var rect = e.target.getBoundingClientRect();
+		//座標取得
+		mouseX1 = e.clientX - rect.left;
+		mouseY1 = e.clientY - rect.top;
+		if (mouseY1 > 30 && mouseY1 < 30 + 330){
+			if (mouseX1 > 44 && mouseX1 < 44 + 26) {
+			    	location.href = "ShowProductServlet?lessonId=1";
+			} else if(mouseX1 > 70 && mouseX1 < 70 + 40){
+					location.href = "ShowProductServlet?lessonId=2";
+			} else if(mouseX1 > 110 && mouseX1 < 110 + 40){
+					location.href = "ShowProductServlet?lessonId=3";
+			} else if(mouseX1 > 150 && mouseX1 < 150 + 40){
+					location.href = "ShowProductServlet?lessonId=4";
+			} else if(mouseX1 > 190 && mouseX1 < 190 + 40){
+					location.href = "ShowProductServlet?lessonId=5";
+			} else if(mouseX1 > 230 && mouseX1 < 230 + 37){
+					location.href = "ShowProductServlet?lessonId=6";
+			} else if(mouseX1 > 267 && mouseX1 < 267 + 39){
+					location.href = "ShowProductServlet?lessonId=7";
+			} else if(mouseX1 > 306 && mouseX1 < 306 + 39){
+					location.href = "ShowProductServlet?lessonId=8";
+			} else if(mouseX1 > 345 && mouseX1 < 345 + 41){
+					location.href = "ShowProductServlet?lessonId=9";
+			} else if(mouseX1 > 386 && mouseX1 < 386 + 38){
+					location.href = "ShowProductServlet?lessonId=10";
+			} else if(mouseX1 > 424 && mouseX1 < 424 + 38){
+					location.href = "ShowProductServlet?lessonId=11";
+			} else if(mouseX1 > 462 && mouseX1 < 462 + 35){
+					location.href = "ShowProductServlet?lessonId=12";
+			}
+		}
+	}
+	function lessonLect(selectedLesson,ctx){
+		if(selectedLesson == 1){
+			ctx.strokeRect(45,315,20,45);
+		} else if(selectedLesson == 2){
+			ctx.strokeRect(80,315,20,45);
+		} else if(selectedLesson == 3){
+			ctx.strokeRect(121,315,20,45);
+		} else if(selectedLesson == 4){
+			ctx.strokeRect(162,315,20,45);
+		} else if(selectedLesson == 5){
+			ctx.strokeRect(202,315,20,45);
+		} else if(selectedLesson == 6){
+			ctx.strokeRect(240,315,20,45);
+		} else if(selectedLesson == 7){
+			ctx.strokeRect(278,315,20,45);
+		} else if(selectedLesson == 8){
+			ctx.strokeRect(317,315,20,45);
+		} else if(selectedLesson == 9){
+			ctx.strokeRect(358,315,20,45);
+		} else if(selectedLesson == 10){
+			ctx.strokeRect(399,315,20,45);
+		} else if(selectedLesson == 11){
+			ctx.strokeRect(435,315,20,45);
+		} else if(selectedLesson == 12){
+			ctx.strokeRect(471,315,20,45);
+		}
+	}
+
 </script>
