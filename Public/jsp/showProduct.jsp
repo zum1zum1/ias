@@ -348,9 +348,31 @@
 			//座標取得
 			mouseX1 = e.clientX - rect.left;
 			mouseY1 = e.clientY - rect.top;
-			if (mouseX1 > 0 && mouseX1 < 0 + 50) {
-				if (mouseY1 > 0 && mouseY1 < 0 + 50) {
-				    	location.href = "ShowProductServlet";
+			if (mouseY1 > 30 && mouseY1 < 30 + 270){
+				if (mouseX1 > 44 && mouseX1 < 44 + 26) {
+				    	location.href = "ShowProductServlet?lessonId=1";
+				} else if(mouseX1 > 70 && mouseX1 < 70 + 40){
+						location.href = "ShowProductServlet?lessonId=2";
+				} else if(mouseX1 > 110 && mouseX1 < 110 + 40){
+						location.href = "ShowProductServlet?lessonId=3";
+				} else if(mouseX1 > 150 && mouseX1 < 150 + 40){
+						location.href = "ShowProductServlet?lessonId=4";
+				} else if(mouseX1 > 190 && mouseX1 < 190 + 40){
+						location.href = "ShowProductServlet?lessonId=5";
+				} else if(mouseX1 > 230 && mouseX1 < 230 + 37){
+						location.href = "ShowProductServlet?lessonId=6";
+				} else if(mouseX1 > 267 && mouseX1 < 267 + 39){
+						location.href = "ShowProductServlet?lessonId=7";
+				} else if(mouseX1 > 306 && mouseX1 < 306 + 39){
+						location.href = "ShowProductServlet?lessonId=8";
+				} else if(mouseX1 > 345 && mouseX1 < 345 + 41){
+						location.href = "ShowProductServlet?lessonId=9";
+				} else if(mouseX1 > 386 && mouseX1 < 386 + 38){
+						location.href = "ShowProductServlet?lessonId=10";
+				} else if(mouseX1 > 424 && mouseX1 < 424 + 38){
+						location.href = "ShowProductServlet?lessonId=11";
+				} else if(mouseX1 > 462 && mouseX1 < 462 + 35){
+						location.href = "ShowProductServlet?lessonId=12";
 				}
 			}
 		}
