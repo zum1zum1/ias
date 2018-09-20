@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Lesson;
+import beans.Product;
 import beans.ResponseData;
 import beans.User;
 import dao.LessonDAO;
+import dao.ProductDAO;
 import dao.ResponseDataDAO;
 
 public class GoSelfAssessmentServlet extends HttpServlet {
@@ -22,21 +25,22 @@ public class GoSelfAssessmentServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//文字コードの設定
+		// 文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 
-		//.jspで選択されたlessonIdを受け取る
+		// .jspで選択されたlessonIdを受け取る
 		int lessonId = Integer.parseInt(request.getParameter("lessonId"));
 
-		//.jspで表示するため、授業をDBから検索
+		// .jspで表示するため、授業をDBから検索
 		LessonDAO lessonDAO = new LessonDAO();
 		Lesson lesson = lessonDAO.identifyLesson(lessonId);
 
-		//sessionの宣言
+		// sessionの宣言
 		HttpSession session = request.getSession(true);
 
-		//sessionでuserIdの受け取り
+		// sessionでuserIdの受け取り
 		User user = (User) session.getAttribute("user");
+		String userId = user.getUserId();
 
 		// 反応データを読み出すためのDAOを宣言する
 		ResponseDataDAO responseDataDAO = new ResponseDataDAO();
@@ -49,9 +53,14 @@ public class GoSelfAssessmentServlet extends HttpServlet {
 			request.setAttribute("responseData", responseData);
 		}
 
-		//後のservletで使うからsessionで保持
+		// 後のservletで使うからsessionで保持
 		session.setAttribute("lesson", lesson);
 		request.setAttribute("selfAssessmentCheck", selfAssessmentCheck);
+
+		// lessonId（とuserId）が一致する成果物をDBから検索する
+		ProductDAO searchProductDAO = new ProductDAO();
+		ArrayList<Product> productList = (ArrayList<Product>) searchProductDAO.searchAllProduct(userId, lessonId);
+		session.setAttribute("productList", productList);
 
 		getServletContext().getRequestDispatcher("/Public/jsp/selfAssessment.jsp").forward(request, response);
 	}

@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page import="beans.ResponseData"%>
 <%@ page import="beans.Lesson"%>
-
+<%@ page import="beans.Product"%>
+<%@ page import="beans.User"%>
 <%
 	Lesson lesson = (Lesson) session.getAttribute("lesson");
 	int selfAssessmentCheck = (int) request.getAttribute("selfAssessmentCheck");
 	ResponseData responseData = (ResponseData) request.getAttribute("responseData");
+	@SuppressWarnings("unchecked")
+	ArrayList<Product> productList = (ArrayList<Product>) session.getAttribute("productList");
+	User user = (User) session.getAttribute("user");
+	String userId = user.getUserId();
 %>
 
 <html>
@@ -21,11 +27,10 @@
 <br>
 <div class="container">
 
-	<div class="row" style="padding: 45px 0 0 0">
+	<div class="row" style="padding: 70px 0 0 0">
 		<!-- 以降は、学習成果物を蓄積する部分を表示 -->
 		<div class="col-xs-4 col-sm-4 col-md-4">
-			<form class="form-inline" enctype="multipart/form-data" method="get" action="UploadProductServlet">
-				<br>
+			<form class="form-inline" enctype="multipart/form-data" method="post" action="UploadProductServlet">
 				<h5>タイトル</h5>
 				<input type="text" style="width: 100%" class="form-control form-control-lg rounded" required name="title">
 				<br>
@@ -56,7 +61,58 @@
 
 		<!-- 以降は、蓄積した学習成果物を表示する部分 -->
 		<div class="col-xs-8 col-sm-8 col-md-8">
+			<table class="table table-hover">
+				<thead class="thead-light">
+					<tr>
+						<th>タイトル</th>
+						<th>日時</th>
+						<th>振り返りの記録</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- listの長さだけテーブルを作成する -->
 
+					<%
+						if (productList.size() != 0) {
+					%>
+					<%
+						for (int i = 0; i < productList.size(); i++) {
+					%>
+					<tr>
+						<td style="word-break: break-all;">
+							<%=productList.get(i).getTitle()%>
+						</td>
+						<td>
+							<%=productList.get(i).getDate()%>
+						</td>
+						<td>
+							<%=productList.get(i).getComment()%>
+						</td>
+						<td>
+							<a href="/ias_product/<%=userId + '/' + lesson.getId() + '/' + productList.get(i).getProductName()%>" target="_blank">確認する</a>
+						</td>
+					</tr>
+					<%
+						}
+					%>
+					<%
+						}
+					%>
+					<%
+						if (productList.size() == 0) {
+					%>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
 		</div>
 	</div>
 
