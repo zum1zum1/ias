@@ -9,8 +9,9 @@ public class Product {
 	private String date = null;
 	private String comment = null;
 	private String userId = null;
+	private int lessonId = 0;
 
-	public Product(int id, String title, String path, String productName, String date, String comment, String userId) {
+	public Product(int id, String title, String path, String productName, String date, String comment, String userId,int lessonId) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -19,6 +20,7 @@ public class Product {
 		this.date = date;
 		this.comment = comment;
 		this.userId = userId;
+		this.lessonId = lessonId;
 	}
 
 	public Product() {
@@ -81,4 +83,11 @@ public class Product {
 		this.userId = userId;
 	}
 
+	public int getLessonId() {
+		return lessonId;
+	}
+
+	public void setLessonId(int lessonId) {
+		this.lessonId = lessonId;
+	}
 }

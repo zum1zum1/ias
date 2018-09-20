@@ -33,48 +33,40 @@ public class UploadProductServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		// ユーザ情報の獲得
+		// sessionの宣言
 		HttpSession session = request.getSession(false);
 		User user = (User) session.getAttribute("user");
 		String userId = user.getUserId();
+
+		int lessonId = (int) session.getAttribute("lessonId");
 
 		// ファイル以外の入力情報の取得
 		String title = request.getParameter("title");
 		String comment = request.getParameter("comment");
 
 		// ファイル保存先
-		final File uploadDir = new File("C:/" + userId);
+		final File uploadDir = new File("C:/" + userId + "/" + lessonId);
 		Part fl = request.getPart("fl");
 
 		// ファイル名が重複するのを防ぐため、時間を取得する
 		SimpleDateFormat timeSub = new SimpleDateFormat("ss");
-		String time = timeSub.format(new Date()); // 20161205124121559
+		String time = timeSub.format(new Date());
 		String changeProductName = time.concat(fl.getSubmittedFileName()).toString();
 
-		if (changeProductName.length() == 2) {
+		// ファイルの保存
+		save(fl, new File(uploadDir, changeProductName));
 
-			changeProductName = null;
-			String path = null;
+		// uploadDirをStirngに変換
+		String path = uploadDir.toString();
 
-			// DBに保存
-			ProductDAO productDAO = new ProductDAO();
-			productDAO.registProduct(title, path, changeProductName, comment, userId);
+		// DBに保存
+		ProductDAO productDAO = new ProductDAO();
+		productDAO.registProduct(title, path, changeProductName, comment, userId,lessonId);
 
-		} else {
+		// lessonId（とuserId）が一致する成果物をDBから検索する
 
-			// ファイルの保存
-			save(fl, new File(uploadDir, changeProductName));
 
-			// uploadDirをStirngに変換
-			String path = uploadDir.toString();
-
-			// DBに保存
-			ProductDAO productDAO = new ProductDAO();
-			productDAO.registProduct(title, path, changeProductName, comment, userId);
-
-		}
-
-		getServletContext().getRequestDispatcher("/Public/jsp/home.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/Public/jsp/selfAssessment.jsp").forward(request, response);
 	}
 
 	public void save(Part in, File out) throws IOException {
