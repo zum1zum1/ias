@@ -71,40 +71,44 @@
 		}
 
 		/* 一つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(0,0,0)';
+		ctx.strokeStyle = 'rgb(0,0,255)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per1list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
 		}
 		ctx.stroke();
 
 		/* 二つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(0,0,255)';
+		ctx.strokeStyle = 'rgb(0,255,0)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per2list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per2list[i]-1]);
 		}
 		ctx.stroke();
 
 		/* 三つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(0,255,0)';
+		ctx.strokeStyle = 'rgb(255,0,0)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per3list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per3list[i]-1]);
 		}
 		ctx.stroke();
 
 		/* 四つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(255,0,0)';
+		ctx.strokeStyle = 'rgb(0,0,0)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per4list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per4list[i]-1]);
 		}
@@ -130,48 +134,56 @@
 		// よい点の描画
 		if(per1Yoi == 1){
 		var imgYBK = new Image();
-		imgYBK.src = "../img/yoiBK_scale50.png";
+		imgYBK.src = "../img/yoi7B_reverse.png";
 		imgYBK.onload = function() {
-			ctx.drawImage(imgYBK, 35, yoiDrawList[per1list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);
-		}}}
+			ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per1list[11]-1]-4);
+//			for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+			}}
 		if(per2Yoi == 1){
-		var imgYB = new Image();
-		imgYB.src = "../img/yoiB_scale50.png";
-		imgYB.onload = function() {
-			ctx.drawImage(imgYB, 35, yoiDrawList[per2list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYB, 35+i*40, yoiDrawList[per2list[i]-1]);
-		}}}
+			var imgYBK = new Image();
+			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.onload = function() {
+				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per2list[11]-1]-4);
+//				for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+				}}
 		if(per3Yoi == 1){
-		var imgYG = new Image();
-		imgYG.src = "../img/yoiG_scale50.png";
-		imgYG.onload = function() {
-			ctx.drawImage(imgYG, 35, yoiDrawList[per3list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYG, 35+i*40, yoiDrawList[per3list[i]-1]);
-		}}}
+			var imgYBK = new Image();
+			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.onload = function() {
+				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per3list[11]-1]-4);
+//				for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+				}}
 		if(per4Yoi == 1){
-		var imgYR = new Image();
-		imgYR.src = "../img/yoiR_scale50.png";
-		imgYR.onload = function() {
-			ctx.drawImage(imgYR, 35, yoiDrawList[per4list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYR, 35+i*40, yoiDrawList[per4list[i]-1]);
-		}}}
+			var imgYBK = new Image();
+			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.onload = function() {
+				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per4list[11]-1]-4);
+//				for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+				}}
 
 		// 可能性の描画
 		if(per1Kanousei == 1){
-			ctx.strokeStyle = 'rgb(0,0,0)';
-			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
-			ctx.shadowColor = "#000000";  //ぼかしの色を定義
+			ctx.lineWidth = 8;
+			ctx.strokeStyle = 'rgb(255,255,0)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
 			ctx.beginPath();
 			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
 			for(var i = 9 ; i < 12 ; i++){
 				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
-			}}
-		ctx.stroke(); //できた線を描画する
+			}
+			ctx.stroke(); //できた線を描画する
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = 'rgb(0,0,255)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
+			}
+			ctx.stroke(); //できた線を描画する
+		}
 		ctx.shadowBlur = 0;  //ぼかし終了
 		if(per2Kanousei == 1){
 			ctx.strokeStyle = 'rgb(0,0,255)';
@@ -209,11 +221,23 @@
 
 		// 進歩の描画
 		if(per1Shinpo == 1){
-		var imgSBK = new Image();
-		imgSBK.src = "../img/shinpoBK.png";
-		imgSBK.onload = function() {
-			ctx.drawImage(imgSBK, 350, responseDataToHigh[per1list[9]-1]);
-		}}
+			var imgSBK = new Image();
+			if(per1list[8]+1==per1list[11]){
+				imgSBK.src = "../img/shinpo5B_1up.png";
+				imgSBK.onload = function() {
+					ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-10);
+				}
+			} else if (per1list[8]+2==per1list[11]) {
+				imgSBK.src = "../img/shinpo5B_2up.png";
+				imgSBK.onload = function() {
+					ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-55);
+				}
+			} else {
+				imgSBK.src = "../img/shinpo5B_3up.png";
+				imgSBK.onload = function() {
+					ctx.drawImage(imgSBK, 348, responseDataToHigh[per1list[8]]-105);
+				}
+			}}
 		if(per2Shinpo == 1){
 		var imgSB = new Image();
 		imgSB.src = "../img/shinpoB.png";
