@@ -33,7 +33,7 @@ public class UserDAO extends DriverAccessor {
 
 
 			// 新しくuserを宣言し、SELECTした結果を代入する
-			User user = new User(rs.getInt("id"), rs.getString("user_id"), rs.getString("password"));
+			User user = new User(rs.getInt("id"), rs.getString("user_id"), rs.getString("user_name"), rs.getString("password"));
 
 			// Statementを閉じる
 			stmt.close();
