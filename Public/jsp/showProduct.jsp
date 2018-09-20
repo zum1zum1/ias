@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="beans.ResponseData"%>
 <%@ page import="beans.Lesson"%>
@@ -36,111 +36,178 @@
 					<td><%=lesson.getDate()%></td>
 				</tr>
 			</table>
-	<div class="row" style="padding: 100px 0 0 0">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			<div class="image-box graph" align="center">
-				<canvas id="canvassample" width="600" height="500">	</canvas>
+			<div class="row" style="padding: 100px 0 0 0">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="image-box graph" align="center">
+						<canvas id="canvassample" width="600" height="500"> </canvas>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
 
-<div class="container">
-	<div class="row" style="padding: 70px 0 0 0">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			<font size="+1">自己評価</font>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>小項目</th>
-						<th>1</th>
-						<th>2</th>
-						<th>3</th>
-						<th>4</th>
-						<th>5</th>
-					</tr>
-				</thead>
+		<div class="container">
+			<div class="row" style="padding: 70px 0 0 0">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<font size="+1">自己評価</font>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>小項目</th>
+								<th>1</th>
+								<th>2</th>
+								<th>3</th>
+								<th>4</th>
+								<th>5</th>
+							</tr>
+						</thead>
 
-				<tbody>
-					<tr>
-						<td>～～について</td>
-						<td>できていない
-						<% if(responseData.getPer1() == 1){out.println("〇");} %>
-						</td>
-						<td>すこしできている
-						<% if(responseData.getPer1() == 2){out.println("〇");} %>
-						</td>
-						<td>ふつう
-						<% if(responseData.getPer1() == 3){out.println("〇");} %>
-						</td>
-						<td>よくできている
-						<% if(responseData.getPer1() == 4){out.println("〇");} %>
-						</td>
-						<td>非常によくできている
-						<% if(responseData.getPer1() == 5){out.println("〇");} %>
-						</td>
-					</tr>
-					<tr>
-						<td>～～について</td>
-						<td>できていない
-						<% if(responseData.getPer2() == 1){out.println("〇");} %>
-						</td>
-						<td>すこしできている
-						<% if(responseData.getPer2() == 2){out.println("〇");} %>
-						</td>
-						<td>ふつう
-						<% if(responseData.getPer2() == 3){out.println("〇");} %>
-						</td>
-						<td>よくできている
-						<% if(responseData.getPer2() == 4){out.println("〇");} %>
-						</td>
-						<td>非常によくできている
-						<% if(responseData.getPer2() == 5){out.println("〇");} %>
-						</td>
-					</tr>
-					<tr>
-						<td>～～について</td>
-						<td>できていない
-						<% if(responseData.getPer3() == 1){out.println("〇");} %>
-						</td>
-						<td>すこしできている
-						<% if(responseData.getPer3() == 2){out.println("〇");} %>
-						</td>
-						<td>ふつう
-						<% if(responseData.getPer3() == 3){out.println("〇");} %>
-						</td>
-						<td>よくできている
-						<% if(responseData.getPer3() == 4){out.println("〇");} %>
-						</td>
-						<td>非常によくできている
-						<% if(responseData.getPer3() == 5){out.println("〇");} %>
-						</td>
-					</tr>
-					<tr>
-						<td>～～について</td>
-						<td>できていない
-						<% if(responseData.getPer4() == 1){out.println("〇");} %>
-						</td>
-						<td>すこしできている
-						<% if(responseData.getPer4() == 2){out.println("〇");} %>
-						</td>
-						<td>ふつう
-						<% if(responseData.getPer4() == 3){out.println("〇");} %>
-						</td>
-						<td>よくできている
-						<% if(responseData.getPer4() == 4){out.println("〇");} %>
-						</td>
-						<td>非常によくできている
-						<% if(responseData.getPer4() == 5){out.println("〇");} %>
-						</td>
-					</tr>
-				</tbody>
+						<tbody>
+							<tr>
+								<td>～～について</td>
+								<td>できていない <%
+									if (responseData.getPer1() == 1) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>すこしできている <%
+									if (responseData.getPer1() == 2) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>ふつう <%
+									if (responseData.getPer1() == 3) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>よくできている <%
+									if (responseData.getPer1() == 4) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>非常によくできている <%
+									if (responseData.getPer1() == 5) {
+										out.println("〇");
+									}
+								%>
+								</td>
+							</tr>
+							<tr>
+								<td>～～について</td>
+								<td>できていない <%
+									if (responseData.getPer2() == 1) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>すこしできている <%
+									if (responseData.getPer2() == 2) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>ふつう <%
+									if (responseData.getPer2() == 3) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>よくできている <%
+									if (responseData.getPer2() == 4) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>非常によくできている <%
+									if (responseData.getPer2() == 5) {
+										out.println("〇");
+									}
+								%>
+								</td>
+							</tr>
+							<tr>
+								<td>～～について</td>
+								<td>できていない <%
+									if (responseData.getPer3() == 1) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>すこしできている <%
+									if (responseData.getPer3() == 2) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>ふつう <%
+									if (responseData.getPer3() == 3) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>よくできている <%
+									if (responseData.getPer3() == 4) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>非常によくできている <%
+									if (responseData.getPer3() == 5) {
+										out.println("〇");
+									}
+								%>
+								</td>
+							</tr>
+							<tr>
+								<td>～～について</td>
+								<td>できていない <%
+									if (responseData.getPer4() == 1) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>すこしできている <%
+									if (responseData.getPer4() == 2) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>ふつう <%
+									if (responseData.getPer4() == 3) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>よくできている <%
+									if (responseData.getPer4() == 4) {
+										out.println("〇");
+									}
+								%>
+								</td>
+								<td>非常によくできている <%
+									if (responseData.getPer4() == 5) {
+										out.println("〇");
+									}
+								%>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div style="text-align: right">
+			<a href="SelectLessonServlet" class="btn btn-default">授業を選択する画面にもどる</a>
 		</div>
 	</div>
 </div>
 </body>
 </html>
+
 <script type="text/javascript" src="../common/canvas/excanvas.js"></script>
 <script type="text/javascript">
 	// ルーブリックの値を格納する配列
@@ -157,6 +224,7 @@
 	// 折れ線を書く時にy座標の位置を指定するための配列
 	var responseDataToHigh = [250,200,150,100,50];
 	var yoiDrawList = [220,170,120,70,20];
+	var selectedLesson = <%=lesson.getId() %>;
 
 	function drawLine(){
 		/* canvas要素のノードオブジェクト */
@@ -179,40 +247,44 @@
 		}
 
 		/* 一つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(0,0,0)';
+		ctx.strokeStyle = 'rgb(0,0,255)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per1list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
 		}
 		ctx.stroke();
 
 		/* 二つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(0,0,255)';
+		ctx.strokeStyle = 'rgb(0,255,0)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per2list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per2list[i]-1]);
 		}
 		ctx.stroke();
 
 		/* 三つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(0,255,0)';
+		ctx.strokeStyle = 'rgb(255,0,0)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per3list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per3list[i]-1]);
 		}
 		ctx.stroke();
 
 		/* 四つ目の観点の折れ線を書く */
-		ctx.strokeStyle = 'rgb(255,0,0)';
+		ctx.strokeStyle = 'rgb(0,0,0)';
 		ctx.beginPath(); //線を書くことの宣言
 		ctx.lineWidth = 3; //線の太さ
 		ctx.moveTo(50, responseDataToHigh[per4list[0]-1]); //書き始める場所を指定(1月)
+		// 2回目以降はfor文であるところまで回す
 		for(var i = 1 ; i < <%=responseDataList.size()%> ; i++){
 			ctx.lineTo(50+i*40, responseDataToHigh[per4list[i]-1]);
 		}
@@ -238,49 +310,60 @@
 		// よい点の描画
 		if(per1Yoi == 1){
 		var imgYBK = new Image();
-		imgYBK.src = "../img/yoiBK_scale50.png";
+		imgYBK.src = "../img/yoi7B_reverse.png";
 		imgYBK.onload = function() {
-			ctx.drawImage(imgYBK, 35, yoiDrawList[per1list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);
-		}}}
+			ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per1list[11]-1]-4);
+		//	for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+			}}
+		// ※2~4観点目のための画像を作る
 		if(per2Yoi == 1){
-		var imgYB = new Image();
-		imgYB.src = "../img/yoiB_scale50.png";
-		imgYB.onload = function() {
-			ctx.drawImage(imgYB, 35, yoiDrawList[per2list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYB, 35+i*40, yoiDrawList[per2list[i]-1]);
-		}}}
+			var imgYBK = new Image();
+			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.onload = function() {
+				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per2list[11]-1]-4);
+		//	for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+				}}
 		if(per3Yoi == 1){
-		var imgYG = new Image();
-		imgYG.src = "../img/yoiG_scale50.png";
-		imgYG.onload = function() {
-			ctx.drawImage(imgYG, 35, yoiDrawList[per3list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYG, 35+i*40, yoiDrawList[per3list[i]-1]);
-		}}}
+			var imgYBK = new Image();
+			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.onload = function() {
+				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per3list[11]-1]-4);
+//				for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+				}}
 		if(per4Yoi == 1){
-		var imgYR = new Image();
-		imgYR.src = "../img/yoiR_scale50.png";
-		imgYR.onload = function() {
-			ctx.drawImage(imgYR, 35, yoiDrawList[per4list[0]-1]);
-			for(var i = 1 ; i < 12 ; i++){
-				ctx.drawImage(imgYR, 35+i*40, yoiDrawList[per4list[i]-1]);
-		}}}
+			var imgYBK = new Image();
+			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.onload = function() {
+				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per4list[11]-1]-4);
+//				for(var i = 1 ; i < 12 ; i++){ctx.drawImage(imgYBK, 35+i*40, yoiDrawList[per1list[i]-1]);}
+				}}
 
 		// 可能性の描画
 		if(per1Kanousei == 1){
-			ctx.strokeStyle = 'rgb(0,0,0)';
-			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
-			ctx.shadowColor = "#000000";  //ぼかしの色を定義
+			ctx.lineWidth = 8;
+			ctx.strokeStyle = 'rgb(255,255,0)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
 			ctx.beginPath();
 			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
 			for(var i = 9 ; i < 12 ; i++){
 				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
-			}}
-		ctx.stroke(); //できた線を描画する
+			}
+			ctx.stroke(); //できた線を描画する
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = 'rgb(0,0,255)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per1list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per1list[i]-1]);
+			}
+			ctx.stroke(); //できた線を描画する
+		}
 		ctx.shadowBlur = 0;  //ぼかし終了
+
+		// 2~4観点目の可能性用に直す
 		if(per2Kanousei == 1){
 			ctx.strokeStyle = 'rgb(0,0,255)';
 			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
@@ -317,11 +400,24 @@
 
 		// 進歩の描画
 		if(per1Shinpo == 1){
-		var imgSBK = new Image();
-		imgSBK.src = "../img/shinpoBK.png";
-		imgSBK.onload = function() {
-			ctx.drawImage(imgSBK, 350, responseDataToHigh[per1list[9]-1]);
-		}}
+			var imgSBK = new Image();
+			if(per1list[8]+1==per1list[11]){
+				imgSBK.src = "../img/shinpo5B_1up.png";
+				imgSBK.onload = function() {
+					ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-10);
+				}
+			} else if (per1list[8]+2==per1list[11]) {
+				imgSBK.src = "../img/shinpo5B_2up.png";
+				imgSBK.onload = function() {
+					ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-55);
+				}
+			} else {
+				imgSBK.src = "../img/shinpo5B_3up.png";
+				imgSBK.onload = function() {
+					ctx.drawImage(imgSBK, 348, responseDataToHigh[per1list[8]]-105);
+				}
+			}}
+		// ※2~4観点目の進歩用の画像を後で作る
 		if(per2Shinpo == 1){
 		var imgSB = new Image();
 		imgSB.src = "../img/shinpoB.png";
@@ -341,19 +437,13 @@
 			ctx.drawImage(imgSR, 350, responseDataToHigh[per4list[9]-1]);
 		}}
 
+		ctx.strokeStyle = 'rgb(0,0,0)';
+		// 選択された学習過程に四角を書く
+		lessonLect(selectedLesson,ctx);
+
+
 		// マウスクリックの際に指定の範囲をクリックしていた場合はそれに応じて飛ぶ
 		canvas.addEventListener("mousedown", mouseDownListner, false);
-		function mouseDownListner(e) {
-			var rect = e.target.getBoundingClientRect();
-			//座標取得
-			mouseX1 = e.clientX - rect.left;
-			mouseY1 = e.clientY - rect.top;
-			if (mouseX1 > 0 && mouseX1 < 0 + 50) {
-				if (mouseY1 > 0 && mouseY1 < 0 + 50) {
-				    	location.href = "ShowProductServlet";
-				}
-			}
-		}
 
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
 		try {
@@ -538,4 +628,66 @@
 		// console.log(slope);
 		return slope;
 	}
+
+	function mouseDownListner(e) {
+		var rect = e.target.getBoundingClientRect();
+		//座標取得
+		mouseX1 = e.clientX - rect.left;
+		mouseY1 = e.clientY - rect.top;
+		if (mouseY1 > 30 && mouseY1 < 30 + 330){
+			if (mouseX1 > 44 && mouseX1 < 44 + 26) {
+			    	location.href = "ShowProductServlet?lessonId=1";
+			} else if(mouseX1 > 70 && mouseX1 < 70 + 40){
+					location.href = "ShowProductServlet?lessonId=2";
+			} else if(mouseX1 > 110 && mouseX1 < 110 + 40){
+					location.href = "ShowProductServlet?lessonId=3";
+			} else if(mouseX1 > 150 && mouseX1 < 150 + 40){
+					location.href = "ShowProductServlet?lessonId=4";
+			} else if(mouseX1 > 190 && mouseX1 < 190 + 40){
+					location.href = "ShowProductServlet?lessonId=5";
+			} else if(mouseX1 > 230 && mouseX1 < 230 + 37){
+					location.href = "ShowProductServlet?lessonId=6";
+			} else if(mouseX1 > 267 && mouseX1 < 267 + 39){
+					location.href = "ShowProductServlet?lessonId=7";
+			} else if(mouseX1 > 306 && mouseX1 < 306 + 39){
+					location.href = "ShowProductServlet?lessonId=8";
+			} else if(mouseX1 > 345 && mouseX1 < 345 + 41){
+					location.href = "ShowProductServlet?lessonId=9";
+			} else if(mouseX1 > 386 && mouseX1 < 386 + 38){
+					location.href = "ShowProductServlet?lessonId=10";
+			} else if(mouseX1 > 424 && mouseX1 < 424 + 38){
+					location.href = "ShowProductServlet?lessonId=11";
+			} else if(mouseX1 > 462 && mouseX1 < 462 + 35){
+					location.href = "ShowProductServlet?lessonId=12";
+			}
+		}
+	}
+	function lessonLect(selectedLesson,ctx){
+		if(selectedLesson == 1){
+			ctx.strokeRect(45,315,20,45);
+		} else if(selectedLesson == 2){
+			ctx.strokeRect(80,315,20,45);
+		} else if(selectedLesson == 3){
+			ctx.strokeRect(121,315,20,45);
+		} else if(selectedLesson == 4){
+			ctx.strokeRect(162,315,20,45);
+		} else if(selectedLesson == 5){
+			ctx.strokeRect(202,315,20,45);
+		} else if(selectedLesson == 6){
+			ctx.strokeRect(240,315,20,45);
+		} else if(selectedLesson == 7){
+			ctx.strokeRect(278,315,20,45);
+		} else if(selectedLesson == 8){
+			ctx.strokeRect(317,315,20,45);
+		} else if(selectedLesson == 9){
+			ctx.strokeRect(358,315,20,45);
+		} else if(selectedLesson == 10){
+			ctx.strokeRect(399,315,20,45);
+		} else if(selectedLesson == 11){
+			ctx.strokeRect(435,315,20,45);
+		} else if(selectedLesson == 12){
+			ctx.strokeRect(471,315,20,45);
+		}
+	}
+
 </script>
