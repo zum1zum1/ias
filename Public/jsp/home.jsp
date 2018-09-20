@@ -133,14 +133,14 @@
 				ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-10);
 			}
 		} else if (per1list[8]+2==per1list[11]) {
-			imgSBK.src = "../img/shinpo3B_2up.png";
+			imgSBK.src = "../img/shinpo5B_2up.png";
 			imgSBK.onload = function() {
-				ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-70);
+				ctx.drawImage(imgSBK, 345, responseDataToHigh[per1list[8]]-55);
 			}
 		} else {
-			imgSBK.src = "../img/shinpo3B_3up.png";
+			imgSBK.src = "../img/shinpo5B_3up.png";
 			imgSBK.onload = function() {
-				ctx.drawImage(imgSBK, 340, responseDataToHigh[per1list[8]]-100);
+				ctx.drawImage(imgSBK, 348, responseDataToHigh[per1list[8]]-105);
 			}
 		}}
 		/* canvasの描画結果をPNGで取り出しimg要素にセット */
