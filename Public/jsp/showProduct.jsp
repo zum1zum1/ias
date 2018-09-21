@@ -65,8 +65,6 @@
 
 					<%
 						if (productList.size() != 0) {
-					%>
-					<%
 						for (int i = 0; i < productList.size(); i++) {
 					%>
 					<tr>
@@ -83,24 +81,15 @@
 							<a href="/ias_product/<%=userId + '/' + lesson.getId() + '/' + productList.get(i).getProductName()%>" target="_blank">確認する</a>
 						</td>
 					</tr>
-					<%
-						}
-					%>
-					<%
-						}
-					%>
-					<%
-						if (productList.size() == 0) {
-					%>
+					<% }} %>
+					<% if (productList.size() == 0) { %>
 					<tr>
 						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
 					</tr>
-					<%
-						}
-					%>
+					<% } %>
 				</tbody>
 			</table>
 		</div>
@@ -123,134 +112,74 @@
 						<tbody>
 							<tr>
 								<td>～～について</td>
-								<td>できていない <%
-									if (responseData.getPer1() == 1) {
-										out.println("〇");
-									}
-								%>
+								<td>できていない
+								<% if (responseData.getPer1() == 1) { out.println("〇"); } %>
 								</td>
-								<td>すこしできている <%
-									if (responseData.getPer1() == 2) {
-										out.println("〇");
-									}
-								%>
+								<td>すこしできている
+								<% if (responseData.getPer1() == 2) { out.println("〇"); } %>
 								</td>
-								<td>ふつう <%
-									if (responseData.getPer1() == 3) {
-										out.println("〇");
-									}
-								%>
+								<td>ふつう
+								<% if (responseData.getPer1() == 3) { out.println("〇"); } %>
 								</td>
-								<td>よくできている <%
-									if (responseData.getPer1() == 4) {
-										out.println("〇");
-									}
-								%>
+								<td>よくできている
+								<% if (responseData.getPer1() == 4) { out.println("〇"); } %>
 								</td>
-								<td>非常によくできている <%
-									if (responseData.getPer1() == 5) {
-										out.println("〇");
-									}
-								%>
+								<td>非常によくできている
+								<% if (responseData.getPer1() == 5) { out.println("〇"); } %>
 								</td>
 							</tr>
 							<tr>
 								<td>～～について</td>
-								<td>できていない <%
-									if (responseData.getPer2() == 1) {
-										out.println("〇");
-									}
-								%>
+								<td>できていない
+								<% if (responseData.getPer2() == 1) { out.println("〇"); } %>
 								</td>
-								<td>すこしできている <%
-									if (responseData.getPer2() == 2) {
-										out.println("〇");
-									}
-								%>
+								<td>すこしできている
+								<% if (responseData.getPer2() == 2) { out.println("〇"); } %>
 								</td>
-								<td>ふつう <%
-									if (responseData.getPer2() == 3) {
-										out.println("〇");
-									}
-								%>
+								<td>ふつう
+								<% if (responseData.getPer2() == 3) { out.println("〇"); } %>
 								</td>
-								<td>よくできている <%
-									if (responseData.getPer2() == 4) {
-										out.println("〇");
-									}
-								%>
+								<td>よくできている
+								<% if (responseData.getPer2() == 4) { out.println("〇"); } %>
 								</td>
-								<td>非常によくできている <%
-									if (responseData.getPer2() == 5) {
-										out.println("〇");
-									}
-								%>
+								<td>非常によくできている
+								<% if (responseData.getPer2() == 5) { out.println("〇"); } %>
 								</td>
 							</tr>
 							<tr>
 								<td>～～について</td>
-								<td>できていない <%
-									if (responseData.getPer3() == 1) {
-										out.println("〇");
-									}
-								%>
+								<td>できていない
+								<% if (responseData.getPer3() == 1) { out.println("〇"); } %>
 								</td>
-								<td>すこしできている <%
-									if (responseData.getPer3() == 2) {
-										out.println("〇");
-									}
-								%>
+								<td>すこしできている
+								<% if (responseData.getPer3() == 2) { out.println("〇"); } %>
 								</td>
-								<td>ふつう <%
-									if (responseData.getPer3() == 3) {
-										out.println("〇");
-									}
-								%>
+								<td>ふつう
+								<% if (responseData.getPer3() == 3) { out.println("〇"); } %>
 								</td>
-								<td>よくできている <%
-									if (responseData.getPer3() == 4) {
-										out.println("〇");
-									}
-								%>
+								<td>よくできている
+								<% if (responseData.getPer3() == 4) { out.println("〇"); } %>
 								</td>
-								<td>非常によくできている <%
-									if (responseData.getPer3() == 5) {
-										out.println("〇");
-									}
-								%>
+								<td>非常によくできている
+								<% if (responseData.getPer3() == 5) { out.println("〇"); } %>
 								</td>
 							</tr>
 							<tr>
 								<td>～～について</td>
-								<td>できていない <%
-									if (responseData.getPer4() == 1) {
-										out.println("〇");
-									}
-								%>
+								<td>できていない
+								<% if (responseData.getPer4() == 1) { out.println("〇"); } %>
 								</td>
-								<td>すこしできている <%
-									if (responseData.getPer4() == 2) {
-										out.println("〇");
-									}
-								%>
+								<td>すこしできている
+								<% if (responseData.getPer4() == 2) { out.println("〇"); } %>
 								</td>
-								<td>ふつう <%
-									if (responseData.getPer4() == 3) {
-										out.println("〇");
-									}
-								%>
+								<td>ふつう
+								<% if (responseData.getPer4() == 3) { out.println("〇"); } %>
 								</td>
-								<td>よくできている <%
-									if (responseData.getPer4() == 4) {
-										out.println("〇");
-									}
-								%>
+								<td>よくできている
+								<% if (responseData.getPer4() == 4) { out.println("〇"); } %>
 								</td>
-								<td>非常によくできている <%
-									if (responseData.getPer4() == 5) {
-										out.println("〇");
-									}
-								%>
+								<td>非常によくできている
+								<% if (responseData.getPer4() == 5) { out.println("〇"); } %>
 								</td>
 							</tr>
 						</tbody>
