@@ -156,403 +156,357 @@
 					</tr>
 				</thead>
 
-				<%
-					if (selfAssessmentCheck == 0) {
-				%>
+				<% if (selfAssessmentCheck == 0) { %>
 				<tbody>
 					<tr>
 						<td>～～について</td>
 						<td>
+							<label for="per1_1">
 							できていない
-							<input type="radio" name="per1" value=1>
+							</label>
+							<input type="radio" name="per1" value=1 id="per1_1">
 						</td>
 						<td>
+							<label for="per1_2">
 							すこしできている
-							<input type="radio" name="per1" value=2>
+							</label>
+							<input type="radio" name="per1" value=2 id="per1_2">
 						</td>
 						<td>
+							<label for="per1_3">
 							ふつう
-							<input type="radio" name="per1" value=3>
+							</label>
+							<input type="radio" name="per1" value=3 id="per1_3">
 						</td>
 						<td>
+							<label for="per1_4">
 							よくできている
-							<input type="radio" name="per1" value=4>
+							</label>
+							<input type="radio" name="per1" value=4 id="per1_4">
 						</td>
 						<td>
+							<label for="per1_5">
 							非常によくできている
-							<input type="radio" name="per1" value=5>
+							</label>
+							<input type="radio" name="per1" value=5 id="per1_5">
 						</td>
 					</tr>
 					<tr>
 						<td>～～について</td>
 						<td>
+							<label for="per2_1">
 							できていない
-							<input type="radio" name="per2" value=1>
+							</label>
+							<input type="radio" name="per2" value=1 id="per2_1">
 						</td>
 						<td>
+							<label for="per2_2">
 							すこしできている
-							<input type="radio" name="per2" value=2>
+							</label>
+							<input type="radio" name="per2" value=2 id="per2_2">
 						</td>
 						<td>
+							<label for="per2_3">
 							ふつう
-							<input type="radio" name="per2" value=3>
+							</label>
+							<input type="radio" name="per2" value=3 id="per2_3">
 						</td>
 						<td>
+							<label for="per2_4">
 							よくできている
-							<input type="radio" name="per2" value=4>
+							</label>
+							<input type="radio" name="per2" value=4 id="per2_4">
 						</td>
 						<td>
+							<label for="per2_5">
 							非常によくできている
-							<input type="radio" name="per2" value=5>
+							</label>
+							<input type="radio" name="per2" value=5 id="per2_5">
 						</td>
 					</tr>
 					<tr>
 						<td>～～について</td>
 						<td>
+							<label for="per3_1">
 							できていない
-							<input type="radio" name="per3" value=1>
+							</label>
+							<input type="radio" name="per3" value=1 id="per3_1">
 						</td>
 						<td>
+							<label for="per3_2">
 							すこしできている
-							<input type="radio" name="per3" value=2>
+							</label>
+							<input type="radio" name="per3" value=2 id="per3_2">
 						</td>
 						<td>
+							<label for="per3_3">
 							ふつう
-							<input type="radio" name="per3" value=3>
+							</label>
+							<input type="radio" name="per3" value=3 id="per3_3">
 						</td>
 						<td>
+							<label for="per3_4">
 							よくできている
-							<input type="radio" name="per3" value=4>
+							</label>
+							<input type="radio" name="per3" value=4 id="per3_4">
 						</td>
 						<td>
+							<label for="per3_5">
 							非常によくできている
-							<input type="radio" name="per3" value=5>
+							</label>
+							<input type="radio" name="per3" value=5 id="per3_5">
 						</td>
 					</tr>
 					<tr>
 						<td>～～について</td>
 						<td>
+							<label for="per4_1">
 							できていない
-							<input type="radio" name="per4" value=1>
+							</label>
+							<input type="radio" name="per4" value=1 id="per4_1">
 						</td>
 						<td>
+							<label for="per4_2">
 							すこしできている
-							<input type="radio" name="per4" value=2>
+							</label>
+							<input type="radio" name="per4" value=2 id="per4_2">
 						</td>
 						<td>
+							<label for="per4_3">
 							ふつう
-							<input type="radio" name="per4" value=3>
+							</label>
+							<input type="radio" name="per4" value=3 id="per4_3">
 						</td>
 						<td>
+							<label for="per4_4">
 							よくできている
-							<input type="radio" name="per4" value=4>
+							</label>
+							<input type="radio" name="per4" value=4 id="per4_4">
 						</td>
 						<td>
+							<label for="per4_5">
 							非常によくできている
-							<input type="radio" name="per4" value=5>
+							</label>
+							<input type="radio" name="per4" value=5 id="per4_5">
 						</td>
 					</tr>
 				</tbody>
-				<%
-					} else if (selfAssessmentCheck == 1) {
-				%>
+				<% } else if (selfAssessmentCheck == 1) { %>
 				<tbody>
 					<tr>
 						<td>～～について</td>
 						<td>
-							できていない
-							<%
-							if (responseData.getPer1() == 1) {
-						%>
-							<input type="radio" name="per1" value=1 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per1" value=1>
-							<%
-								}
-							%>
+							<label for="per1_1">
+								できていない
+							</label>
+							<% if (responseData.getPer1() == 1) { %>
+							<input type="radio" name="per1" value=1 checked id="per1_1">
+							<% } else { %>
+							<input type="radio" name="per1" value=1 id="per1_1">
+							<% } %>
 						</td>
 						<td>
+							<label for="per1_2">
 							すこしできている
-							<%
-							if (responseData.getPer1() == 2) {
-						%>
-							<input type="radio" name="per1" value=2 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per1" value=2>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer1() == 2) { %>
+							<input type="radio" name="per1" value=2 checked id="per1_2">
+							<% } else { %>
+							<input type="radio" name="per1" value=2 id="per1_2">
+							<% } %>
 						</td>
 						<td>
+							<label for="per1_3">
 							ふつう
-							<%
-							if (responseData.getPer1() == 3) {
-						%>
-							<input type="radio" name="per1" value=3 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per1" value=3>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer1() == 3) { %>
+							<input type="radio" name="per1" value=3 checked id="per1_3">
+							<% } else { %>
+							<input type="radio" name="per1" value=3 id="per1_3">
+							<% } %>
 						</td>
 						<td>
+							<label for="per1_4">
 							よくできている
-							<%
-							if (responseData.getPer1() == 4) {
-						%>
-							<input type="radio" name="per1" value=4 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per1" value=4>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer1() == 4) { %>
+							<input type="radio" name="per1" value=4 checked id="per1_4">
+							<% } else { %>
+							<input type="radio" name="per1" value=4 id="per1_4">
+							<% } %>
 						</td>
 						<td>
+							<label for="per1_5">
 							非常によくできている
-							<%
-							if (responseData.getPer1() == 5) {
-						%>
-							<input type="radio" name="per1" value=5 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per1" value=5>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer1() == 5) { %>
+							<input type="radio" name="per1" value=5 checked id="per1_5">
+							<% } else { %>
+							<input type="radio" name="per1" value=5 id="per1_5">
+							<% } %>
 						</td>
 					</tr>
 					<tr>
 						<td>～～について</td>
 						<td>
-							できていない
-							<%
-							if (responseData.getPer2() == 1) {
-						%>
-							<input type="radio" name="per2" value=1 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per2" value=1>
-							<%
-								}
-							%>
+							<label for="per2_1">
+								できていない
+							</label>
+							<% if (responseData.getPer2() == 1) { %>
+							<input type="radio" name="per2" value=1 checked id="per2_1">
+							<% } else { %>
+							<input type="radio" name="per2" value=1 id="per2_1">
+							<% } %>
 						</td>
 						<td>
+							<label for="per2_2">
 							すこしできている
-							<%
-							if (responseData.getPer2() == 2) {
-						%>
-							<input type="radio" name="per2" value=2 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per2" value=2>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer2() == 2) { %>
+							<input type="radio" name="per2" value=2 checked id="per2_2">
+							<% } else { %>
+							<input type="radio" name="per2" value=2 id="per2_2">
+							<% } %>
 						</td>
 						<td>
+							<label for="per2_3">
 							ふつう
-							<%
-							if (responseData.getPer2() == 3) {
-						%>
-							<input type="radio" name="per2" value=3 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per2" value=3>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer2() == 3) { %>
+							<input type="radio" name="per2" value=3 checked id="per2_3">
+							<% } else { %>
+							<input type="radio" name="per2" value=3 id="per2_3">
+							<% } %>
 						</td>
 						<td>
+							<label for="per2_4">
 							よくできている
-							<%
-							if (responseData.getPer2() == 4) {
-						%>
-							<input type="radio" name="per2" value=4 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per2" value=4>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer2() == 4) { %>
+							<input type="radio" name="per2" value=4 checked id="per2_4">
+							<% } else { %>
+							<input type="radio" name="per2" value=4 id="per2_4">
+							<% } %>
 						</td>
 						<td>
+							<label for="per2_5">
 							非常によくできている
-							<%
-							if (responseData.getPer2() == 5) {
-						%>
-							<input type="radio" name="per2" value=5 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per2" value=5>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer2() == 5) { %>
+							<input type="radio" name="per2" value=5 checked id="per2_5">
+							<% } else { %>
+							<input type="radio" name="per2" value=5 id="per2_5">
+							<% } %>
 						</td>
 					</tr>
 					<tr>
 						<td>～～について</td>
 						<td>
-							できていない
-							<%
-							if (responseData.getPer3() == 1) {
-						%>
-							<input type="radio" name="per3" value=1 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per3" value=1>
-							<%
-								}
-							%>
+							<label for="per3_1">
+								できていない
+							</label>
+							<% if (responseData.getPer3() == 1) { %>
+							<input type="radio" name="per3" value=1 checked id="per3_1">
+							<% } else { %>
+							<input type="radio" name="per3" value=1 id="per3_1">
+							<% } %>
 						</td>
 						<td>
+							<label for="per3_2">
 							すこしできている
-							<%
-							if (responseData.getPer3() == 2) {
-						%>
-							<input type="radio" name="per3" value=2 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per3" value=2>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer3() == 2) { %>
+							<input type="radio" name="per3" value=2 checked id="per3_2">
+							<% } else { %>
+							<input type="radio" name="per3" value=2 id="per3_2">
+							<% } %>
 						</td>
 						<td>
+							<label for="per3_3">
 							ふつう
-							<%
-							if (responseData.getPer3() == 3) {
-						%>
-							<input type="radio" name="per3" value=3 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per3" value=3>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer3() == 3) { %>
+							<input type="radio" name="per3" value=3 checked id="per3_3">
+							<% } else { %>
+							<input type="radio" name="per3" value=3 id="per3_3">
+							<% } %>
 						</td>
 						<td>
+							<label for="per3_4">
 							よくできている
-							<%
-							if (responseData.getPer3() == 4) {
-						%>
-							<input type="radio" name="per3" value=4 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per3" value=4>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer3() == 4) { %>
+							<input type="radio" name="per3" value=4 checked id="per3_4">
+							<% } else { %>
+							<input type="radio" name="per3" value=4 id="per3_4">
+							<% } %>
 						</td>
 						<td>
+							<label for="per3_5">
 							非常によくできている
-							<%
-							if (responseData.getPer3() == 5) {
-						%>
-							<input type="radio" name="per3" value=5 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per3" value=5>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer3() == 5) { %>
+							<input type="radio" name="per3" value=5 checked id="per3_5">
+							<% } else { %>
+							<input type="radio" name="per3" value=5 id="per3_5">
+							<% } %>
 						</td>
 					</tr>
 					<tr>
 						<td>～～について</td>
 						<td>
-							できていない
-							<%
-							if (responseData.getPer4() == 1) {
-						%>
-							<input type="radio" name="per4" value=1 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per4" value=1>
-							<%
-								}
-							%>
+							<label for="per4_1">
+								できていない
+							</label>
+							<% if (responseData.getPer4() == 1) { %>
+							<input type="radio" name="per4" value=1 checked id="per4_1">
+							<% } else { %>
+							<input type="radio" name="per4" value=1 id="per4_1">
+							<% } %>
 						</td>
 						<td>
+							<label for="per4_2">
 							すこしできている
-							<%
-							if (responseData.getPer4() == 2) {
-						%>
-							<input type="radio" name="per4" value=2 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per4" value=2>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer4() == 2) { %>
+							<input type="radio" name="per4" value=2 checked id="per4_2">
+							<% } else { %>
+							<input type="radio" name="per4" value=2 id="per4_2">
+							<% } %>
 						</td>
 						<td>
+							<label for="per4_3">
 							ふつう
-							<%
-							if (responseData.getPer4() == 3) {
-						%>
-							<input type="radio" name="per4" value=3 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per4" value=3>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer4() == 3) { %>
+							<input type="radio" name="per4" value=3 checked id="per4_3">
+							<% } else { %>
+							<input type="radio" name="per4" value=3 id="per4_3">
+							<% } %>
 						</td>
 						<td>
+							<label for="per4_4">
 							よくできている
-							<%
-							if (responseData.getPer4() == 4) {
-						%>
-							<input type="radio" name="per4" value=4 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per4" value=4>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer4() == 4) { %>
+							<input type="radio" name="per4" value=4 checked id="per4_4">
+							<% } else { %>
+							<input type="radio" name="per4" value=4 id="per4_4">
+							<% } %>
 						</td>
 						<td>
+							<label for="per4_5">
 							非常によくできている
-							<%
-							if (responseData.getPer4() == 5) {
-						%>
-							<input type="radio" name="per4" value=5 checked>
-							<%
-								} else {
-							%>
-							<input type="radio" name="per4" value=5>
-							<%
-								}
-							%>
+							</label>
+							<% if (responseData.getPer4() == 5) { %>
+							<input type="radio" name="per4" value=5 checked id="per4_5">
+							<% } else { %>
+							<input type="radio" name="per4" value=5 id="per4_5">
+							<% } %>
 						</td>
 					</tr>
 				</tbody>
-				<%
-					}
-				%>
+				<% } %>
 			</table>
 
 			<div style="text-align: right">
@@ -560,9 +514,7 @@
 				<button type='submit' class="btn btn-info" value="登録する" id="submit">登録する</button>
 			</div>
 			<br>
-			<%
-				out.println("</form>");
-			%>
+			<% out.println("</form>"); %>
 		</div>
 	</div>
 </div>
