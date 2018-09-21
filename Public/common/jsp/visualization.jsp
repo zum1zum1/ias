@@ -63,7 +63,7 @@
 		oresen('rgb(0,0,255)',per1list,lessonSize,ctx);
 		oresen('rgb(0,255,0)',per2list,lessonSize,ctx);
 		oresen('rgb(255,0,0)',per3list,lessonSize,ctx);
-		oresen('rgb(0,0,0)',per4list,lessonSize,ctx);
+		// oresen('rgb(0,0,0)',per4list,lessonSize,ctx);
 
 		// よい点、可能性、進歩の状況をそれぞれの観点について判定する
 		// ※12回分ない場合は判定をしないようにしなくてはいけない
@@ -91,13 +91,13 @@
 		// ※2~4観点目のための画像を作る
 		if(per2Yoi == 1){
 			var imgYBK = new Image();
-			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.src = "../img/yoi7G.png";
 			imgYBK.onload = function() {
 				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per2list[11]-1]-4);
 				}}
 		if(per3Yoi == 1){
 			var imgYBK = new Image();
-			imgYBK.src = "../img/yoi7B_reverse.png";
+			imgYBK.src = "../img/yoi7R.png";
 			imgYBK.onload = function() {
 				ctx.drawImage(imgYBK, 20+11*40, yoiDrawList[per3list[11]-1]-4);
 				}}
@@ -133,17 +133,28 @@
 		}
 		ctx.shadowBlur = 0;  //ぼかし終了
 
-		// 2~4観点目の可能性用に直す
 		if(per2Kanousei == 1){
-			ctx.strokeStyle = 'rgb(0,0,255)';
-			ctx.shadowBlur = 20;  //ぼかしの範囲を定義
-			ctx.shadowColor = "#0000ff";  //ぼかしの色を定義
+			ctx.lineWidth = 8;
+			ctx.strokeStyle = 'rgb(255,255,0)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
 			ctx.beginPath();
 			ctx.moveTo(370, responseDataToHigh[per2list[8]-1]);
 			for(var i = 9 ; i < 12 ; i++){
 				ctx.lineTo(50+i*40, responseDataToHigh[per2list[i]-1]);
-			}}
-		ctx.stroke(); //できた線を描画する
+			}
+			ctx.stroke(); //できた線を描画する
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = 'rgb(0,255,0)';
+			ctx.shadowBlur = 30;  //ぼかしの範囲を定義
+			ctx.shadowColor = "#FF8000";  //ぼかしの色を定義
+			ctx.beginPath();
+			ctx.moveTo(370, responseDataToHigh[per2list[8]-1]);
+			for(var i = 9 ; i < 12 ; i++){
+				ctx.lineTo(50+i*40, responseDataToHigh[per2list[i]-1]);
+			}
+			ctx.stroke(); //できた線を描画する
+		}
 		ctx.shadowBlur = 0;  //ぼかし終了
 		if(per3Kanousei == 1){
 			ctx.strokeStyle = 'rgb(0,255,0)';
